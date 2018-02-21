@@ -1,0 +1,73 @@
+@import 'colors';
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: $color_medium;
+
+  p {
+    font-weight: 300;
+  }
+
+  h1, h3, h5 {
+    font-weight: 500;
+  }
+
+  h2, h4, h6 {
+    font-weight: 700;
+  }
+
+  label {
+    font-weight: 300;
+    font-size: 20px;
+  }
+
+}
+
+.btn {
+  font-family: 'Architects Daughter', cursive;
+}
+
+.btn-warning {
+  background-color: $color_arizona !important;
+  background-image: none;
+  border: orangered;
+}
+
+.logo_img {
+  background-image: url('/up_arrow-1-l.png') !important;
+  background-size: 47px !important;
+  background-repeat: no-repeat !important;
+}
+
+.up_logo {
+  width: 40px;
+}
+
+.jumbotron {
+  height: 700px;
+  box-shadow: 0px 10px 18px #888888;
+
+  .container {
+    margin-top: 40px;
+    min-height: 550px;
+    padding: 25px;
+    background: $color_black_transparent;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+}
+
+.az_search {
+  background: url('/arz.jpg');
+  background-size: cover;
+}
+
+.mn_search {
+  background: url('/mn.jpeg');
+  background-size: cover;
+}
+
+

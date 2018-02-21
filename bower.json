@@ -1,0 +1,6 @@
+{
+  "name": "up",
+  "dependencies": {
+    "typed.js": "^1.1.1"
+  }
+}

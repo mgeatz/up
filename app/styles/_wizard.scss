@@ -1,0 +1,166 @@
+@import 'colors';
+
+.planning_wizard {
+  height: 325px;
+  position: absolute;
+
+  // large screen
+  @media screen and (min-width: 900px) {
+    width: 75%
+  }
+
+  // small screen
+  @media screen and (max-width: 900px) {
+    width: 85%
+  }
+
+  // tall screen
+  @media screen and (max-height: 820px) and (max-width: 415px) {
+    height: 375px;
+  }
+
+  // medium tall screen
+  @media screen and (max-height: 750px) and (max-width: 415px) {
+    height: 350px;
+  }
+
+  .breadcrumb {
+    background: none;
+    padding-top: 0px;
+
+    // large screen
+    @media screen and (min-width: 900px) {
+
+      li + li:before {
+        color: #ccc;
+        content: "___";
+        margin: 22px -19px;
+        position: absolute;
+      }
+
+      a {
+        font-size: 12px;
+        border-radius: 50%;
+        border: none;
+        height: 75px;
+        width: 75px;
+        position: relative;
+        margin-right: 10px;
+        line-height: .95;
+        background-color: $color_medium;
+        background-image: none;
+        color: $color_space_dark;
+        font-family: 'Architects Daughter', cursive;
+      }
+
+      .current.b_az {
+
+        a {
+          background-color: $color_arizona;
+          color: $color_light;
+          border: 1px solid $color_light;
+          line-height: .95;
+        }
+
+      }
+
+      .current.b_mn {
+
+        a {
+          background-color: $color_minnesota;
+          color: $color_light;
+          border: 1px solid $color_light;
+          line-height: .95;
+        }
+
+      }
+
+    }
+
+    // small screen
+
+    @media screen and (max-width: 900px) {
+
+      padding: 0;
+
+      li {
+
+        &:before {
+          content: none;
+        }
+
+        &:after {
+          content: '⇢';
+        }
+
+        &:last-child {
+          &:after {
+            content: '';
+          }
+        }
+
+      }
+
+      a {
+        font-size: 12px;
+        font-weight: 300;
+        background: none;
+        box-shadow: none;
+        border: none;
+        color: $color_dark;
+      }
+
+      .current {
+
+        a {
+          color: $color_light;
+          text-decoration: underline;
+          font-weight: 500;
+        }
+
+      }
+
+    }
+
+  }
+
+  .fly_to {
+    margin: 20px 0;
+
+    .date_picker,
+    .date_picker_return {
+      color: $color_space_dark;
+      border-radius: 7px;
+      width: 130px;
+      font-size: 16px;
+      border: none;
+      padding: 5px;
+    }
+
+    .fa-arrows-alt-v {
+      color: $color_space_dark;
+      position: absolute;
+      margin: 8px -21px;
+      font-size: 16px;
+    }
+
+    select {
+      background: $color_light;
+      color: $color_space_dark;
+      padding: 5px;
+    }
+
+  }
+
+  .wizard_nav_buttons {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .itinerary {
+    padding: 10px;
+    background: rgba(255,255,255,0.4);
+  }
+
+}

@@ -1,0 +1,51 @@
+@import 'colors';
+
+.architect {
+  font-family: 'Architects Daughter', cursive;
+}
+
+.yan_kaff {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+// font sizes
+
+.font_huge {
+  font-size: 36px !important;
+}
+
+.font_big {
+  font-size: 26px !important;
+}
+
+.font_medium {
+  font-size: 20px !important;
+}
+
+.font_small {
+  font-size: 16px !important;
+}
+
+.font_extra_small {
+  font-size: 12px !important;
+}
+
+// font color
+
+.color_light {
+  color: $color_light !important;
+}
+
+.color_medium {
+  color: $color_medium !important;
+}
+
+.color_dark {
+  color: $color_dark !important;
+}
+
+// custom
+
+.special_letter {
+  letter-spacing: 2px;
+}

@@ -1,0 +1,91 @@
+@import 'colors';
+
+.top_nav {
+  background: $color_light_transparent;
+  border-bottom: none;
+
+  li {
+
+    a {
+      color: $color_light !important;
+    }
+
+  }
+
+  .active {
+
+    a {
+      background: $color_black_transparent !important;
+    }
+
+  }
+
+  .hamburger {
+
+    &:focus {
+      outline: none;
+    }
+
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+      background-color: $color_light;
+      width: 30px;
+    }
+
+  }
+
+  .menu_icon {
+    float: right;
+    width: 45px;
+
+
+
+  }
+
+  // wide screen
+  @media screen and (min-width: 900px) {
+
+  }
+
+  // narrow screen
+  @media screen and (max-width: 900px) {
+    height: 30px;
+    background: rgba(0,0,0,0.7);
+    top: 0;
+    position: fixed;
+
+    .navbar-nav {
+      margin-top: 49px;
+      text-align: right;
+      background: rgb(68, 129, 203);
+    }
+
+  }
+
+}
+
+.footer_nav {
+  background: $color_dark;
+  color: $color_extra_dark;
+  min-height: 25px;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 5px -3px 39px #ccc;
+  margin-top: 35px;
+
+  ul {
+    margin-bottom: 1px;
+
+    li {
+      display: inline;
+      list-style: none;
+      line-height: 1.75;
+    }
+
+    li + li:before {
+      content: ' | ';
+      padding: 0 10px;
+    }
+
+  }
+
+}
