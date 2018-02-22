@@ -28,6 +28,10 @@ export default Component.extend({
 
   actions: {
 
+    changeBackground(bigSmall) {
+      this.sendAction('changeBackground', bigSmall);
+    },
+
     selectDeparture(state) {
       this.set('step1', true);
 
@@ -63,11 +67,16 @@ export default Component.extend({
       this.set('step0', true);
       this.set('step1', true);
       this.set('step2', false);
+      this.send('changeBackground', 'small');
+      this.set('flightPicker', false);
     },
 
     findFlights() {
       this.set('step0', false);
+      this.set('step1', true);
       this.set('step2', true);
+      this.send('changeBackground', 'big');
+      this.set('flightPicker', true)
     }
 
   }

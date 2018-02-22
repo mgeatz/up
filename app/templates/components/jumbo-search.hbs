@@ -1,10 +1,12 @@
-<div class="jumbotron {{bckimg}} color_light">
+<div class="jumbotron {{bckimg}} color_light {{bigSmall}}">
   <div class="container">
 
     {{#if introMsg}}
       <h3>{{typed-string class="element" strings=typedStrings typeSpeed=10 backSpeed=0 cursorChar="▌"}}</h3>
       <br>
       <h1 id="timer"></h1>
+      <br><br>
+      <button class="btn btn-default architect" {{action "skipIntro"}}>Skip Intro</button>
     {{else}}
       <div class="row">
         <div class="col-xs-12 col-sm-11 col-md-10">
@@ -14,7 +16,7 @@
       </div>
       <h3>Plan A Flight</h3>
       <hr>
-      {{wizard/planning-wizard}}
+      {{wizard/planning-wizard changeBackground='changeBackground'}}
     {{/if}}
 
   </div>

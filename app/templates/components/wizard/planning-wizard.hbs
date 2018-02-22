@@ -86,26 +86,23 @@
                           onClose=(action "pickDate" "return")
                           placeholder="MM/DD/YYYY"}}
         </label>
-      <br>
+        <br>
         {{#if dateOfDeparture}}
           <div class="wizard_nav_buttons">
             <div class="btn-group" role="group" aria-label="...">
               <!--<button type="button" class="btn btn-default" {{action "editDetails"}}>BACK</button>-->
-              <button type="button" class="btn btn-primary" {{action "findFlights"}}>NEXT</button>
+              <button type="button" class="btn btn-success" {{action "findFlights"}}>NEXT</button>
             </div>
           </div>
         {{/if}}
       {{/if}}
-
-      {{#if step2}}
-        <div class="itinerary">
-          <img src="/g2_layout_light.png" width="100%">
-        </div>
-      {{/if}}
     </div>
 
     {{#if flightPicker}}
-
+      {{flight-picker departFrom=departFrom
+                      numberOfTravelers=numberOfTravelers
+                      dateOfDeparture=dateOfDeparture
+                      dateOfReturn=dateOfReturn}}
     {{/if}}
 
     {{#if summary}}

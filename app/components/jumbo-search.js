@@ -37,9 +37,21 @@ export default Component.extend({
           this.set('introMsg', false);
         }
       }, 1500);
-""
     }, 3000);
 
   },
+
+  actions: {
+
+    changeBackground(bigSmall) {
+      console.log('changeBackground', bigSmall);
+      this.set('bigSmall', bigSmall);
+    },
+
+    skipIntro() {
+      this.set('introMsg', false);
+    }
+
+  }
 
 });
