@@ -6,9 +6,23 @@ export default Component.extend({
 
   actions: {
 
-    selectSeats() {
+
+    selectFlight() {
+
+    },
+
+
+    selectSeat(event, seat) {
+      console.log('seat ', event, seat);
+    },
+
+
+    showSeats() {
       this.set('showSeats', true);
-      this.sendAction('selectSeats');
+      // wrap in zero timeout to ensure seats image has rendered
+      setTimeout(() => {
+        imageMapResize();
+      });
     }
 
   }
