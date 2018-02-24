@@ -102,7 +102,9 @@
       {{flight-picker departFrom=departFrom
                       numberOfTravelers=numberOfTravelers
                       dateOfDeparture=dateOfDeparture
-                      dateOfReturn=dateOfReturn}}
+                      dateOfReturn=dateOfReturn
+                      arizona=arizona
+                      minnesota=minnesota}}
     {{/if}}
 
     {{#if summary}}
@@ -114,8 +116,7 @@
       <h3>itinerary</h3>
       <hr>
       {{#if step1}}
-        Travel Route:<br>
-        {{#if minnesota}}MINNESOTA to ARIZONA{{/if}}
+        Travel Route:{{#if minnesota}}MINNESOTA to ARIZONA{{/if}}
         {{#if arizona}}ARIZONA to MINNESOTA{{/if}}<br><br>
         Total Travelers: {{numberOfTravelers}}<br><br>
         {{#if dateOfDeparture}}
@@ -123,8 +124,14 @@
           {{#if dateOfReturn}}
             Return Date: {{dateOfReturn}} {{#if timeOfReturn}}@ {{timeOfReturn}}{{/if}}<br><br>
           {{else}}
-            Return Date: NONE
+            Return Date: NONE<br><br>
           {{/if}}
+        {{/if}}
+        Outbound Flight: {{outboundFlight}}<br><br>
+        {{#if dateOfReturn}}Return Flight: {{returnFlight}}{{/if}}<br><br>
+        {{#if totalMoney}}
+          Total $: {{totalMoney}}<br><br>
+          <button class="btn btn-default">Book It</button>
         {{/if}}
       {{/if}}
     </div>
