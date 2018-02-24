@@ -3,55 +3,56 @@ import {computed} from '@ember/object';
 
 export default Component.extend({
 
-  typedStrings: [
-    "Hi there, do you have 10 seconds?",
-    "We're a new company.",
-    "Current phase = market feasibility.",
-    "We need your help.",
-    "Please create a simulated travel trip.",
-    "Your clicks are a vital metric.",
-    "Thank you!"
-  ],
+	typedStrings: [
+		"Hello",
+		"Do you have 10 seconds?",
+		"We are new.",
+		"Current phase = market feasibility.",
+		"We need your help...",
+		"Please create a simulated travel trip.",
+		"Your clicks are vital!",
+		"Thanks!"
+	],
 
-  search: 'az_search',
+	search: 'az_search',
 
-  introMsg: true,
+	introMsg: true,
 
-  bckimg: computed('search', function () {
-    return this.get('search');
-  }),
+	bckimg: computed('search', function () {
+		return this.get('search');
+	}),
 
-  init() {
-    this._super();
+	init() {
+		this._super();
 
-    let timer = 11;
+		let timer = 11;
 
-    setTimeout(() => {
-      Ember.$('#timer').show();
-      setInterval(() => {
-        timer -= 1;
-        Ember.$('#timer').text(timer);
-        if (timer === -1) {
-          Ember.$('#timer').hide();
-          $('.element').fadeOut('slow');
-          this.set('introMsg', false);
-        }
-      }, 1500);
-    }, 3000);
+		setTimeout(() => {
+			Ember.$('#timer').show();
+			setInterval(() => {
+				timer -= 1;
+				Ember.$('#timer').text(timer);
+				if (timer === -1) {
+					Ember.$('#timer').hide();
+					$('.element').fadeOut('slow');
+					this.set('introMsg', false);
+				}
+			}, 1400);
+		}, 3000);
 
-  },
+	},
 
-  actions: {
+	actions: {
 
-    changeBackground(bigSmall) {
-      console.log('changeBackground', bigSmall);
-      this.set('bigSmall', bigSmall);
-    },
+		changeBackground(bigSmall) {
+			console.log('changeBackground', bigSmall);
+			this.set('bigSmall', bigSmall);
+		},
 
-    skipIntro() {
-      this.set('introMsg', false);
-    }
+		skipIntro() {
+			this.set('introMsg', false);
+		}
 
-  }
+	}
 
 });

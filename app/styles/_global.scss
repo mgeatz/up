@@ -21,6 +21,31 @@ body {
     font-size: 20px;
   }
 
+  h5 {
+
+    .current {
+      color: $color_light;
+      padding: 0 5px;
+    }
+
+    .not_current {
+      text-decoration: underline;
+      padding: 0 5px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+    }
+
+  }
+
+  input.input_text {
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+  }
+
 }
 
 .btn {

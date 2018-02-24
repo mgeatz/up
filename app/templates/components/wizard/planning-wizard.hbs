@@ -1,139 +1,162 @@
 <section class="planning_wizard row">
 
-  <div class="col-xs-12 col-sm-8 col-md-8">
-    <ol class="breadcrumb">
+	<div class="col-xs-12 col-sm-8 col-md-8">
+		<ol class="breadcrumb">
 
-      {{#if step1}}
-        <li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}}" {{action "editDetails" on="click"}}>
-          <a class="btn btn-primary" style="padding-top: 32px;">DETAILS</a>
-        </li>
-      {{else}}
-        <li>
-          <a class="btn btn-primary" style="padding-top: 32px;">DETAILS</a>
-        </li>
-      {{/if}}
+			{{#if step1}}
+				<li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}}" {{action "editDetails" on="click"}}>
+					<a class="btn btn-primary" style="padding-top: 32px;">DETAILS</a>
+				</li>
+			{{else}}
+				<li>
+					<a class="btn btn-primary" style="padding-top: 32px;">DETAILS</a>
+				</li>
+			{{/if}}
 
+			{{#if step2}}
+				<li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}}">
+					<a class="btn btn-primary" style="padding-top: 32px;">FLIGHTS</a>
+				</li>
+			{{else}}
+				<li>
+					<a class="btn btn-primary" style="padding-top: 32px;">FLIGHTS</a>
+				</li>
+			{{/if}}
 
-      {{#if step2}}
-        <li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}}">
-          <a class="btn btn-primary" style="padding-top: 32px;">FLIGHTS</a>
-        </li>
-      {{else}}
-        <li>
-          <a class="btn btn-primary" style="padding-top: 32px;">FLIGHTS</a>
-        </li>
-      {{/if}}
+			{{#if step3}}
+				<li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}}">
+					<a class="btn btn-primary" style="padding-top: 32px;">BOOK IT</a>
+				</li>
+			{{else}}
+				<li>
+					<a class="btn btn-primary" style="padding-top: 32px;">BOOK IT</a>
+				</li>
+			{{/if}}
 
+		</ol>
 
-      {{#if step3}}
-        <li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}}">
-          <a class="btn btn-primary" style="padding-top: 32px;">BOOK IT</a>
-        </li>
-      {{else}}
-        <li>
-          <a class="btn btn-primary" style="padding-top: 32px;">BOOK IT</a>
-        </li>
-      {{/if}}
+		{{!to}}
+		{{#if step0}}
+			<div class="fly_to">
+				{{#if departFrom}}
+					<p>I'll be departing from:</p>
+					<button class="btn btn-default {{if arizona 'btn-warning' 'btn-default'}}" {{action "selectDeparture" "az"}}>
+						ARIZONA
+					</button>
+					<button class="btn btn-default {{if minnesota 'btn-primary' 'btn-default'}}" {{action "selectDeparture"
+																																																"mn"}}>
+						MINNESOTA
+					</button>
+					<br>
+					<br>
+				{{/if}}
+				<label>How many travelers?
+					<select value={{numberOfTravelers}} class="numberOfTravelers"
+						{{action "desiredCapacity" on="change"}}>
+						<option value="1">1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+					</select>
+					<i class="fas fa-arrows-alt-v hidden-sm hidden-md hidden-lg"></i>
+				</label>
+				<br>
+				<label>When are you departing?
+					{{pikaday-input class="date_picker"
+													value=dateOfDeparture
+													minDate=minDate
+													format="MM/DD/YYYY"
+													onClose=(action "pickDate" "depart")
+													placeholder="MM/DD/YYYY"}}
+				</label>
+				<br>
+				<label>Do you want a return flight?
+					{{pikaday-input class="date_picker_return"
+													value=dateOfReturn
+													minDate=minDate
+													format="MM/DD/YYYY"
+													onClose=(action "pickDate" "return")
+													placeholder="MM/DD/YYYY"}}
+				</label>
+				<br>
+				{{#if dateOfDeparture}}
+					<div class="wizard_nav_buttons">
+						<div class="btn-group" role="group" aria-label="...">
+							<!--<button type="button" class="btn btn-default" {{action "editDetails"}}>BACK</button>-->
+							<button type="button" class="btn btn-success" {{action "findFlights"}}>NEXT</button>
+						</div>
+					</div>
+				{{/if}}
+			</div>
+		{{/if}}
 
-    </ol>
+		{{#if flightPicker}}
+			<a {{action "backToDetails"}}><sup>← BACK TO DETAILS</sup></a>
+			{{flight-picker departFrom=departFrom
+											numberOfTravelers=numberOfTravelers
+											dateOfDeparture=dateOfDeparture
+											dateOfReturn=dateOfReturn
+											arizona=arizona
+											minnesota=minnesota
+											flightDetails='flightDetails'}}
+		{{/if}}
 
-    {{!to}}
-    <div class="fly_to">
-      {{#if step0}}
-        {{#if departFrom}}
-          <p>I'll be departing from:</p>
-          <button class="btn btn-default {{if arizona 'btn-warning' 'btn-default'}}" {{action "selectDeparture" "az"}}>
-            ARIZONA
-          </button>
-          <button class="btn btn-default {{if minnesota 'btn-primary' 'btn-default'}}" {{action "selectDeparture"
-                                                                                                "mn"}}>
-            MINNESOTA
-          </button>
-          <br>
-          <br>
-        {{/if}}
-        <label>How many travelers?
-          <select value={{numberOfTravelers}} class="numberOfTravelers"
-            {{action "desiredCapacity" on="change"}}>
-            <option value="1">1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-          </select>
-          <i class="fas fa-arrows-alt-v hidden-sm hidden-md hidden-lg"></i>
-        </label>
-        <br>
-        <label>When are you departing?
-          {{pikaday-input class="date_picker"
-                          value=dateOfDeparture
-                          minDate=minDate
-                          format="MM/DD/YYYY"
-                          onClose=(action "pickDate" "depart")
-                          placeholder="MM/DD/YYYY"}}
-        </label>
-        <br>
-        <label>Do you want a return flight?
-          {{pikaday-input class="date_picker_return"
-                          value=dateOfReturn
-                          minDate=minDate
-                          format="MM/DD/YYYY"
-                          onClose=(action "pickDate" "return")
-                          placeholder="MM/DD/YYYY"}}
-        </label>
-        <br>
-        {{#if dateOfDeparture}}
-          <div class="wizard_nav_buttons">
-            <div class="btn-group" role="group" aria-label="...">
-              <!--<button type="button" class="btn btn-default" {{action "editDetails"}}>BACK</button>-->
-              <button type="button" class="btn btn-success" {{action "findFlights"}}>NEXT</button>
-            </div>
-          </div>
-        {{/if}}
-      {{/if}}
-    </div>
+		{{#if bookIt}}
+			<a {{action "backToFlights"}}><sup>← BACK TO FLIGHTS</sup></a>
+			<h2>Thank you for preparing a trip with us!</h2>
+			<h4>This was just a simulation; we do not offer this service yet.</h4>
+			<p>
+				We are working very hard to bring this service to you as quickly as possible.
+				The prices reflected in this simulation accurately represent what will be
+				offered once we are operational.
+			</p>
+			<br><br>
+			<p class="yan_kaff">"We provide private flights at commercial prices." -
+				<b>UP</b> <span class="font_small">CEO</span>, Michael Geatz</p>
 
-    {{#if flightPicker}}
-      {{flight-picker departFrom=departFrom
-                      numberOfTravelers=numberOfTravelers
-                      dateOfDeparture=dateOfDeparture
-                      dateOfReturn=dateOfReturn
-                      arizona=arizona
-                      minnesota=minnesota}}
-    {{/if}}
+			<br><br>
 
-    {{#if summary}}
+			<h3>Keep up with our progress.</h3>
+			<sup>Join Our Mailing List</sup>
+			<br><br>
+			<input type="text" class="input_text" placeholder="Email" value={{email_address}}/><br>
+			<button class="btn btn-success" {{action "thankYou"}}>Sign Up</button>
 
-    {{/if}}
-  </div>
-  <div class="col-xs-12 col-sm-4 col-md-4">
-    <div class="itinerary architect special_letter">
-      <h3>itinerary</h3>
-      <hr>
-      {{#if step1}}
-        Travel Route:{{#if minnesota}}MINNESOTA to ARIZONA{{/if}}
-        {{#if arizona}}ARIZONA to MINNESOTA{{/if}}<br><br>
-        Total Travelers: {{numberOfTravelers}}<br><br>
-        {{#if dateOfDeparture}}
-          Departure Date: {{dateOfDeparture}} {{#if timeOfDeparture}}@ {{timeOfDeparture}}{{/if}}<br><br>
-          {{#if dateOfReturn}}
-            Return Date: {{dateOfReturn}} {{#if timeOfReturn}}@ {{timeOfReturn}}{{/if}}<br><br>
-          {{else}}
-            Return Date: NONE<br><br>
-          {{/if}}
-        {{/if}}
-        Outbound Flight: {{outboundFlight}}<br><br>
-        {{#if dateOfReturn}}Return Flight: {{returnFlight}}{{/if}}<br><br>
-        {{#if totalMoney}}
-          Total $: {{totalMoney}}<br><br>
-          <button class="btn btn-default">Book It</button>
-        {{/if}}
-      {{/if}}
-    </div>
-  </div>
+		{{/if}}
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-4">
+		<div class="itinerary architect special_letter">
+			<h3>itinerary</h3>
+			<hr>
+			{{#if step1}}
+				Travel Route:{{#if minnesota}}MINNESOTA to ARIZONA{{/if}}
+				{{#if arizona}}ARIZONA to MINNESOTA{{/if}}<br><br>
+				Total Travelers: {{numberOfTravelers}}<br><br>
+				{{#if dateOfDeparture}}
+					Departure Date: {{dateOfDeparture}} {{#if timeOfDeparture}}@ {{timeOfDeparture}}{{/if}}<br><br>
+					{{#if dateOfReturn}}
+						Return Date: {{dateOfReturn}} {{#if timeOfReturn}}@ {{timeOfReturn}}{{/if}}<br><br>
+					{{else}}
+						Return Date: NONE<br><br>
+					{{/if}}
+				{{/if}}
+				Outbound Flight: {{outboundFlight}}<br>
+				<sup>Takeoff: {{outboundFlightTakeoff}}, Landing: {{outboundFlightLanding}}</sup>
+				<br><br>
+				{{#if dateOfReturn}}Return Flight: {{returnFlight}}<br>
+				<sup>Takeoff: {{returnFlightTakeoff}}, Landing: {{returnFlightLanding}}</sup>
+				<br><br>{{/if}}
+				{{#if totalMoney}}
+					Total $: {{totalMoney}}<br><br>
+					<button class="btn btn-default">Book It</button>
+				{{/if}}
+			{{/if}}
+		</div>
+	</div>
 </section>
