@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6332928c-c38f-44c4-ad3f-89fb3dec3384" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/components/flight-picker.js" afterPath="$PROJECT_DIR$/app/components/flight-picker.js" />
       <change beforePath="$PROJECT_DIR$/app/templates/components/flight-picker.hbs" afterPath="$PROJECT_DIR$/app/templates/components/flight-picker.hbs" />
-      <change beforePath="$PROJECT_DIR$/app/templates/components/wizard/planning-wizard.hbs" afterPath="$PROJECT_DIR$/app/templates/components/wizard/planning-wizard.hbs" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,21 +16,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="flight-picker.hbs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="flight-picker.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/components/flight-picker.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1158">
-              <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+            <state relative-caret-position="1264">
+              <caret line="114" column="4" lean-forward="false" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="planning-wizard.hbs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="flight-picker.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/flight-picker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="73" column="19" lean-forward="false" selection-start-line="73" selection-start-column="2" selection-end-line="73" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="planning-wizard.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/components/wizard/planning-wizard.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="126" column="37" lean-forward="false" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
+            <state relative-caret-position="1319">
+              <caret line="124" column="24" lean-forward="false" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -39,8 +49,8 @@
       <file leaf-file-name="planning-wizard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/wizard/planning-wizard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+            <state relative-caret-position="698">
+              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,11 +113,11 @@
         <option value="$PROJECT_DIR$/app/styles/_flight-picker.scss" />
         <option value="$PROJECT_DIR$/public/map.js" />
         <option value="$PROJECT_DIR$/ember-cli-build.js" />
-        <option value="$PROJECT_DIR$/app/components/flight-picker.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/app/templates/components/flight-picker.hbs" />
         <option value="$PROJECT_DIR$/app/templates/components/wizard/planning-wizard.hbs" />
+        <option value="$PROJECT_DIR$/app/components/flight-picker.js" />
+        <option value="$PROJECT_DIR$/app/templates/components/flight-picker.hbs" />
       </list>
     </option>
   </component>
@@ -370,12 +380,12 @@
       <workItem from="1519180028284" duration="5205000" />
       <workItem from="1519273130902" duration="3853000" />
       <workItem from="1519347680244" duration="7118000" />
-      <workItem from="1519438829872" duration="1760000" />
+      <workItem from="1519438829872" duration="3541000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58371000" />
+    <option name="totallyTimeSpent" value="60152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="0" />
@@ -741,13 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/flight-picker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -775,26 +778,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/components/wizard/planning-wizard.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1319">
+          <caret line="124" column="24" lean-forward="false" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/wizard/planning-wizard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+        <state relative-caret-position="698">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/flight-picker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="73" column="19" lean-forward="false" selection-start-line="73" selection-start-column="2" selection-end-line="73" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/components/flight-picker.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1158">
-          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/components/wizard/planning-wizard.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="126" column="37" lean-forward="false" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
+        <state relative-caret-position="1264">
+          <caret line="114" column="4" lean-forward="false" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
           <folding />
         </state>
       </provider>
