@@ -22,10 +22,15 @@ export default Component.extend({
 		return this.get('search');
 	}),
 
+
 	init() {
 		this._super();
 
 		let timer = 11;
+
+    if (sessionStorage.getItem('alreadyDisplayedIntroMsg')) {
+      this.set('introMsg', false);
+    }
 
 		setTimeout(() => {
 			Ember.$('#timer').show();
@@ -38,9 +43,11 @@ export default Component.extend({
 					this.set('introMsg', false);
 				}
 			}, 1400);
+      sessionStorage.setItem('alreadyDisplayedIntroMsg', true);
 		}, 3000);
 
 	},
+
 
 	actions: {
 
@@ -49,9 +56,15 @@ export default Component.extend({
 			this.set('bigSmall', bigSmall);
 		},
 
+
 		skipIntro() {
 			this.set('introMsg', false);
-		}
+		},
+
+
+    successfullyBook() {
+      this.sendAction('successfullyBook');
+    }
 
 	}
 

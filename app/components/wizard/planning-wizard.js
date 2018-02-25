@@ -155,6 +155,12 @@ export default Component.extend({
         this.set('dateOfReturn', Ember.$('.date_picker_return').val());
       }
 
+    },
+
+
+    successfullyBook() {
+      location.href = 'success';
+      //this.sendAction('successfullyBook');
     }
 
   }
