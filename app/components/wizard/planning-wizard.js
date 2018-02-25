@@ -81,6 +81,7 @@ export default Component.extend({
 
 
 		flightDetails(details) {
+    	this.set('details', details);
       this.set('outboundFlight', details.outboundFlightId);
 			this.set('outboundFlightTakeoff', details.outboundFlightTakeoff);
 			this.set('outboundFlightLanding', details.outboundFlightLanding);
@@ -159,8 +160,17 @@ export default Component.extend({
 
 
     successfullyBook() {
-      location.href = 'success';
-      //this.sendAction('successfullyBook');
+    	let arizona = this.get('arizona'),
+				startingLocation = arizona !== false ? 'AZ' : 'MN',
+				details = this.get('details');
+
+    	details.numberOfTravelers = this.get('numberOfTravelers');
+    	details.startingLocation = startingLocation;
+
+			// send JSON object
+				// then
+      	location.href = 'success';
+
     }
 
   }
