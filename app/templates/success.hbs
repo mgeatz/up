@@ -1,56 +1,22 @@
-<main id="top">
+<section>
+  {{#jumbo-search success=true}}
+    <h2>Thank you for preparing a trip with us!</h2>
+    <h4>This was just a simulation; we do not offer this service yet.</h4>
+    <p>
+      We are working very hard to bring this service to you as quickly as possible.
+      The prices reflected in this simulation accurately represent what will be
+      offered once we are operational.
+    </p>
+    <br><br>
+    <p class="yan_kaff">"We provide private flights at commercial prices." -
+      <b>UP</b> <span class="font_small">CEO</span>, Michael Geatz</p>
 
-  <section>
-    {{#jumbo-search success=true}}
-      <h2>Thank you for preparing a trip with us!</h2>
-      <h4>This was just a simulation; we do not offer this service yet.</h4>
-      <p>
-        We are working very hard to bring this service to you as quickly as possible.
-        The prices reflected in this simulation accurately represent what will be
-        offered once we are operational.
-      </p>
-      <br><br>
-      <p class="yan_kaff">"We provide private flights at commercial prices." -
-        <b>UP</b> <span class="font_small">CEO</span>, Michael Geatz</p>
+    <br><br>
 
-      <br><br>
-
-      <h3>Keep up with our progress.</h3>
-      <sup>Join Our Mailing List</sup>
-      <br><br>
-      <input type="text" class="input_text" placeholder="Email" value={{email_address}}/><br>
-      <button class="btn btn-success" {{action "thankYou"}}>Sign Up</button>
-    {{/jumbo-search}}
-  </section>
-
-  <section class="container">
-    <div class="page-header">
-      <h1 id="compare">Compare <small>UP vs Commercial</small></h1>
-    </div>
-    <div>
-      <p>lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend.lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend .
-        lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend. lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend.</p>
-    </div>
-  </section>
-
-  <section class="container">
-    <div class="page-header">
-      <h1 id="routes">Routes <small>Minnesota and Arizona</small></h1>
-    </div>
-    <div>
-      <p>lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend.lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend .
-        lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend. lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend.</p>
-    </div>
-  </section>
-
-  <section class="container">
-    <div class="page-header">
-      <h1 id="logistics">Logistics <small>point A to B, and back to A</small></h1>
-    </div>
-    <div>
-      <p>lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend.lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend .
-        lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend. lorem impsum sdo eu fdsawr dnuqc asdfu dsfu guend.</p>
-    </div>
-  </section>
-
-</main>
+    <h3>Keep up with our progress.</h3>
+    <sup>Join Our Mailing List</sup>
+    <br><br>
+    <input type="text" class="input_text" placeholder="Email" value={{email_address}}/><br>
+    <button class="btn btn-success" {{action "thankYou"}}>Sign Up</button>
+  {{/jumbo-search}}
+</section>

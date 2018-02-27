@@ -163,4 +163,14 @@
     background: rgba(255,255,255,0.4);
   }
 
+  .back_to {
+    color: $color_extra_dark;
+    text-decoration: underline;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+  }
+
 }
