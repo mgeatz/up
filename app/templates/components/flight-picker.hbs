@@ -9,7 +9,7 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-xs-12 col-sm-2">
-							<sup>{{dateOfDeparture}}</sup>
+							<small>{{dateOfDeparture}}</small>
 							<h4>{{flightOut.takeoff}} - {{flightOut.landing}}</h4>
 							<h6 class="architect">UP Airway</h6>
 						</div>
@@ -23,8 +23,8 @@
 						</div>
 						<div class="col-xs-12 col-sm-2">
 							<h5>$725 per person</h5>
-							<sup>one way</sup><br>
-							<sup>Free cancel w/in 48hrs</sup>
+							<small>one way</small><br>
+							<small>Free cancel w/in 48hrs</small>
 						</div>
 						<div class="col-xs-12 col-sm-2">
 							<button class="btn btn-success" {{action "selectOutboundFlight" flightOut}}>Select</button>
@@ -66,7 +66,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-xs-12 col-sm-2">
-								<sup>{{dateOfReturn}}</sup>
+								<small>{{dateOfReturn}}</small>
 								<h4>{{flightReturn.takeoff}} - {{flightReturn.landing}}</h4>
 								<h6 class="architect">UP Airway</h6>
 							</div>
@@ -79,8 +79,8 @@
 							</div>
 							<div class="col-xs-12 col-sm-2">
 								<h5>$725 per person</h5>
-								<sup>one way</sup><br>
-								<sup>Free cancel w/in 48hrs</sup>
+								<small>one way</small><br>
+								<small>Free cancel w/in 48hrs</small>
 							</div>
 							<div class="col-xs-12 col-sm-2">
 								<button class="btn btn-success" {{action "selectReturnFlight" flightReturn}}>Select</button>
