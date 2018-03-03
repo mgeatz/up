@@ -28,14 +28,6 @@ export default Component.extend({
 
   step3: false,
 
-	// outboundSeats: Ember.computed('outboundFlightSeats', function(){
-	// 	return `${this.get('outboundFlightSeats')}`;
-	// }),
-	//
-	// returnSeats: Ember.computed('returnFlightSeats', function(){
-	// 	return `${this.get('returnFlightSeats')}`;
-	// }),
-
 
 	_calculateTotal() {
     let numberOfTravelers = parseInt(this.get('numberOfTravelers')),
