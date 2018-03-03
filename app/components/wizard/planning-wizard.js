@@ -54,7 +54,7 @@ export default Component.extend({
 
 		desiredCapacity(event) {
 			this.set('numberOfTravelers', Ember.$('.numberOfTravelers').val());
-			console.log('desiredCapacity()...', event, this.get('numberOfTravelers'));
+			// console.log('desiredCapacity()...', event, this.get('numberOfTravelers'));
 		},
 
 

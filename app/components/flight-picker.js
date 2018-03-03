@@ -215,10 +215,10 @@ export default Component.extend({
       this.set('outboundFlightTakeoff', flight.takeoff);
       this.set('outboundFlightLanding', flight.landing);
 
-      this.send('showSeats');
+      this.send('showSeats', true);
 
       Ember.$('.outbound_flights').addClass('hidden');
-      //Ember.$('#flightOut').collapse();
+      Ember.$('.seat_preview').hide();
     },
 
 
@@ -227,10 +227,10 @@ export default Component.extend({
       this.set('returnFlightTakeoff', flight.takeoff);
       this.set('returnFlightLanding', flight.landing);
 
-      this.send('showSeats');
+      this.send('showSeats', true);
 
       Ember.$('.return_flights').addClass('hidden');
-      //Ember.$('#flight').collapse();
+      Ember.$('.seat_preview').hide();
     },
 
 
@@ -273,10 +273,11 @@ export default Component.extend({
     },
 
 
-    showSeats() {
-      this.set('showSeats', true);
+    showSeats(toggle) {
+      this.set('showSeats', toggle);
       // wrap in zero timeout to ensure seats image has rendered
       setTimeout(() => {
+        console.log('resize map');
         imageMapResize();
       });
     }
