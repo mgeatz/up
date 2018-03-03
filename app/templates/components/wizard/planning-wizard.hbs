@@ -121,7 +121,8 @@
             Total Travelers: {{numberOfTravelers}}<br><br>
             Departure Date: {{dateOfDeparture}} {{#if timeOfDeparture}}@ {{timeOfDeparture}}{{/if}}<br><br>
             Outbound Flight: {{outboundFlight}}<br>
-            <sup>Takeoff: {{outboundFlightTakeoff}}, Landing: {{outboundFlightLanding}}</sup>
+            <sup>Takeoff: {{outboundFlightTakeoff}}, Landing: {{outboundFlightLanding}}</sup><br>
+						<sup>Seats: {{#each outboundFlightSeats as |outboundseat|}}{{outboundseat}}, {{/each}}</sup>
           </div>
           <div class="col-sm-6">
             {{#if dateOfReturn}}
@@ -130,7 +131,8 @@
               Total Travelers: {{numberOfTravelers}}<br><br>
               Return Date: {{dateOfReturn}}<br><br>
               Return Flight: {{returnFlight}}<br>
-              <sup>Takeoff: {{returnFlightTakeoff}}, Landing: {{returnFlightLanding}}</sup>
+              <sup>Takeoff: {{returnFlightTakeoff}}, Landing: {{returnFlightLanding}}</sup><br>
+							<sup>Seats: {{#each returnFlightSeats as |returnseat|}}{{returnseat}}, {{/each}}</sup>
               <br><br>
             {{/if}}
           </div>
@@ -144,7 +146,7 @@
   </div>
   <div class="col-xs-12 col-sm-4 col-md-4">
     <div class="itinerary architect special_letter">
-      <h3>itinerary</h3>
+      <h3>Trip Preview</h3>
       <hr>
       {{#if step1}}
         Travel Route:{{#if minnesota}}MINNESOTA to ARIZONA{{/if}}
@@ -159,10 +161,12 @@
           {{/if}}
         {{/if}}
         Outbound Flight: {{outboundFlight}}<br>
-        <sup>Takeoff: {{outboundFlightTakeoff}}, Landing: {{outboundFlightLanding}}</sup>
+        <sup>Takeoff: {{outboundFlightTakeoff}}, Landing: {{outboundFlightLanding}}</sup><br>
+				<sup>Seats: {{#each outboundFlightSeats as |outboundseat|}}{{outboundseat}}, {{/each}}</sup>
         <br><br>
         {{#if dateOfReturn}}Return Flight: {{returnFlight}}<br>
-          <sup>Takeoff: {{returnFlightTakeoff}}, Landing: {{returnFlightLanding}}</sup>
+          <sup>Takeoff: {{returnFlightTakeoff}}, Landing: {{returnFlightLanding}}</sup><br>
+          <sup>Seats: {{#each returnFlightSeats as |returnseat|}}{{returnseat}}, {{/each}}</sup>
           <br><br>{{/if}}
         {{#if totalMoney}}
           <h4>Total $: {{totalMoney}}</h4>

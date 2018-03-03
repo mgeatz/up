@@ -28,6 +28,14 @@ export default Component.extend({
 
   step3: false,
 
+	// outboundSeats: Ember.computed('outboundFlightSeats', function(){
+	// 	return `${this.get('outboundFlightSeats')}`;
+	// }),
+	//
+	// returnSeats: Ember.computed('returnFlightSeats', function(){
+	// 	return `${this.get('returnFlightSeats')}`;
+	// }),
+
 
 	_calculateTotal() {
     let numberOfTravelers = parseInt(this.get('numberOfTravelers')),
@@ -85,10 +93,12 @@ export default Component.extend({
       this.set('outboundFlight', details.outboundFlightId);
 			this.set('outboundFlightTakeoff', details.outboundFlightTakeoff);
 			this.set('outboundFlightLanding', details.outboundFlightLanding);
+			this.set('outboundFlightSeats', details.outboundFlightSeats);
 
 			this.set('returnFlight', details.returnFlightId);
 			this.set('returnFlightTakeoff', details.returnFlightTakeoff);
 			this.set('returnFlightLanding', details.returnFlightLanding);
+			this.set('returnFlightSeats', details.returnFlightSeats);
 
 			if (details.bookIt) {
 				this.set('step0', false);

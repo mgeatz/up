@@ -28,46 +28,15 @@
 						</div>
 						<div class="col-xs-12 col-sm-2">
 							<button class="btn btn-success" {{action "selectOutboundFlight" flightOut}}>Select</button>
-							<a data-toggle="collapse" href={{flightOut.id}} {{action "showSeats" flightOut}}>
+							<a data-toggle="collapse" data-target="#flightOut" {{action "showSeats" flightOut}}>
 								Show seats
 							</a>
 						</div>
 					</div>
 				</div>
 			</div>
-      <div class="collapse" id={{flightOut.id}}>
-        <div class="well">
-          <img src="/g2_layout_light.png" alt="" usemap="#Map" width="100%"/>
-          <map name="Map" id="Map">
-            <area alt="" title="" href="#" shape="poly" coords="92,36,95,112,218,113,218,34" {{action "selectSeat"
-                                                                                                      1}}/>
-            <area alt="" title="" href="#" shape="poly" coords="240,39,352,39,354,109,244,109" {{action "selectSeat"
-                                                                                                        2}}/>
-            <area alt="" title="" href="#" shape="poly" coords="418,37,476,38,477,78,420,79" {{action "selectSeat"
-                                                                                                      3}}/>
-            <area alt="" title="" href="#" shape="poly" coords="418,161,475,161,475,202,420,202" {{action
-              "selectSeat"
-              4}}/>
-            <area alt="" title="" href="#" shape="poly" coords="320,202,385,201,384,282,322,282" {{action
-              "selectSeat"
-              5}}/>
-            <area alt="" title="" href="#" shape="poly" coords="417,241,473,242,473,282,419,282" {{action
-              "selectSeat"
-              6}}/>
-            <area alt="" title="" href="#" shape="poly" coords="586,160,638,160,638,199,587,200" {{action
-              "selectSeat"
-              7}}/>
-            <area alt="" title="" href="#" shape="poly" coords="585,238,641,237,640,276,587,277" {{action
-              "selectSeat"
-              8}}/>
-            <area alt="" title="" href="#" shape="poly" coords="586,38,643,42,640,78,587,77" {{action "selectSeat"
-                                                                                                      9}}/>
-          </map>
-        </div>
-      </div>
 		{{/each}}
 	{{/if}}
-
 
 	{{#if outboundFlight}}
 		{{#if dateOfReturn}}
@@ -99,38 +68,13 @@
 							</div>
 							<div class="col-xs-12 col-sm-2">
 								<button class="btn btn-success" {{action "selectReturnFlight" flightReturn}}>Select</button>
-								<a data-toggle="collapse" href={{flightReturn.id}} {{action "showSeats" flightReturn}}>
+								<a data-toggle="collapse" data-target="#flightReturn" {{action "showSeats" flightReturn}}>
 									Show seats
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-        <div class="collapse" id={{flightReturn.id}}>
-          <div class="well">
-            <img src="/g2_layout_light.png" alt="" usemap="#Map" width="100%"/>
-            <map name="Map" id="Map">
-              <area alt="" title="" href="#" shape="poly" coords="92,36,95,112,218,113,218,34"
-                {{action "selectSeat" 1 true}}/>
-              <area alt="" title="" href="#" shape="poly" coords="240,39,352,39,354,109,244,109"
-                {{action "selectSeat" 2 true}}/>
-              <area alt="" title="" href="#" shape="poly" coords="418,37,476,38,477,78,420,79"
-                {{action "selectSeat" 3 true}}/>
-              <area alt="" title="" href="#" shape="poly" coords="418,161,475,161,475,202,420,202"
-                {{action "selectSeat" 4 true}}/>
-              <area alt="" title="" href="#" shape="poly" coords="320,202,385,201,384,282,322,282"
-                {{action "selectSeat" 5 true}}/>
-              <area alt="" title="" href="#" shape="poly" coords="417,241,473,242,473,282,419,282"
-                {{action "selectSeat" 6 true}}/>
-              <area alt="" title="" href="#" shape="poly" coords="586,160,638,160,638,199,587,200"
-                {{action "selectSeat" 7 true}}/>
-              <area alt="" title="" href="#" shape="poly" coords="585,238,641,237,640,276,587,277"
-                {{action "selectSeat" 8 true}}/>
-              <area alt="" title="" href="#" shape="poly" coords="586,38,643,42,640,78,587,77"
-                {{action "selectSeat" 9 true}}/>
-            </map>
-          </div>
-        </div>
 			{{/each}}
 		{{/if}}
 	{{/if}}
@@ -138,6 +82,30 @@
 </section>
 
 {{#if showSeats}}
-
+	<div class="collapse in">
+		<div class="well">
+			<img src="/g2_layout_light.png" alt="" usemap="#Map" width="100%"/>
+			<map name="Map" id="Map">
+				<area alt="" title="" href="#" shape="poly" coords="92,36,95,112,218,113,218,34"
+					{{action "selectSeat" 1 returnFlightId}}/>
+				<area alt="" title="" href="#" shape="poly" coords="240,39,352,39,354,109,244,109"
+					{{action "selectSeat" 2 returnFlightId}}/>
+				<area alt="" title="" href="#" shape="poly" coords="418,37,476,38,477,78,420,79"
+					{{action "selectSeat" 3 returnFlightId}}/>
+				<area alt="" title="" href="#" shape="poly" coords="418,161,475,161,475,202,420,202"
+					{{action "selectSeat" 4 returnFlightId}}/>
+				<area alt="" title="" href="#" shape="poly" coords="320,202,385,201,384,282,322,282"
+					{{action "selectSeat" 5 returnFlightId}}/>
+				<area alt="" title="" href="#" shape="poly" coords="417,241,473,242,473,282,419,282"
+					{{action "selectSeat" 6 returnFlightId}}/>
+				<area alt="" title="" href="#" shape="poly" coords="586,160,638,160,638,199,587,200"
+					{{action "selectSeat" 7 returnFlightId}}/>
+				<area alt="" title="" href="#" shape="poly" coords="585,238,641,237,640,276,587,277"
+					{{action "selectSeat" 8 returnFlightId}}/>
+				<area alt="" title="" href="#" shape="poly" coords="586,38,643,42,640,78,587,77"
+					{{action "selectSeat" 9 returnFlightId}}/>
+			</map>
+		</div>
+	</div>
 {{/if}}
 

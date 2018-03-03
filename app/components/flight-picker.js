@@ -10,9 +10,13 @@ export default Component.extend({
 
   outboundFlightTime: null,
 
+  outboundFlightSeats: [],
+
   returnFlightId: null,
 
   returnFlightTime: null,
+
+  returnFlightSeats: [],
 
   outboundFlightTimes: [
     {
@@ -193,17 +197,13 @@ export default Component.extend({
         outboundFlightId: this.get('outboundFlightId'),
         outboundFlightTakeoff: this.get('outboundFlightTakeoff'),
         outboundFlightLanding: this.get('outboundFlightLanding'),
+				outboundFlightSeats: this.get('outboundFlightSeats'),
         returnFlightId: this.get('returnFlightId'),
         returnFlightTakeoff: this.get('returnFlightTakeoff'),
         returnFlightLanding: this.get('returnFlightLanding'),
+				returnFlightSeats: this.get('returnFlightSeats'),
         bookIt: this.get('bookIt')
       };
-
-      // if (this.get('dateOfReturn') === null) {
-      // 	this.set('bookIt', true);
-      // }
-      //
-      // this.send('flightDetails');
 
       this.sendAction('flightDetails', details);
     },
@@ -218,7 +218,7 @@ export default Component.extend({
       this.send('showSeats');
 
       Ember.$('.outbound_flights').addClass('hidden');
-      Ember.$('#' + flight.id + '').collapse();
+      //Ember.$('#flightOut').collapse();
     },
 
 
@@ -230,19 +230,46 @@ export default Component.extend({
       this.send('showSeats');
 
       Ember.$('.return_flights').addClass('hidden');
-      Ember.$('#' + flight.id + '').collapse();
+      //Ember.$('#flight').collapse();
     },
 
 
     selectSeat(seat, proceedFlag) {
       console.log('seat ', seat);
-      this.set('outboundFlight', true);
+      let numberOfTravelers = parseInt(this.get('numberOfTravelers'));
 
-      if (this.get('dateOfReturn') === null || proceedFlag) {
-        this.set('bookIt', true);
+      if (this.get('outboundFlightSeats').length < numberOfTravelers) {
+				this.get('outboundFlightSeats').pushObject(seat);
+
+				if (this.get('outboundFlightSeats').length === numberOfTravelers) {
+
+					if (this.get('dateOfReturn') === null) {
+						this.set('bookIt', true);
+					}
+
+					if (proceedFlag === null) {
+						this.set('showSeats', false);
+						this.set('outboundFlight', true);
+					}
+
+				}
+
       }
 
-      this.send('flightDetails')
+			if (proceedFlag) {
+				if (this.get('returnFlightSeats').length < numberOfTravelers) {
+					this.get('returnFlightSeats').pushObject(seat);
+
+					if (this.get('returnFlightSeats').length === numberOfTravelers) {
+						this.set('bookIt', true);
+						this.set('showSeats', false);
+					}
+
+				}
+      }
+
+			this.send('flightDetails');
+
     },
 
 
