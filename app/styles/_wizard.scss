@@ -129,12 +129,13 @@
 
     .date_picker,
     .date_picker_return {
+      background: $color_medium;
       color: $color_space_dark;
       border-radius: 7px;
-      width: 130px;
-      font-size: 16px;
-      border: none;
-      padding: 5px;
+      width: 145px;
+      font-size: 14px;
+      border: 2px solid $color_medium;
+      padding: 5px 10px;
     }
 
     .fa-arrows-alt-v {
@@ -145,9 +146,13 @@
     }
 
     select {
-      background: $color_light;
+      background: $color_medium;
       color: $color_space_dark;
-      padding: 5px;
+      border: 7px solid $color_medium;
+    }
+
+    input {
+
     }
 
   }

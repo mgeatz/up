@@ -14,7 +14,7 @@ export default Component.extend({
 		"Thanks!"
 	],
 
-	search: 'az_search',
+	search: 'mn_search',
 
 	introMsg: true,
 
@@ -54,6 +54,12 @@ export default Component.extend({
 		changeBackground(bigSmall) {
 			console.log('changeBackground', bigSmall);
 			this.set('bigSmall', bigSmall);
+		},
+
+
+    changeBackgroundImage(state) {
+			console.log('search', state + '_search');
+      this.set('search', state + '_search');
 		},
 
 

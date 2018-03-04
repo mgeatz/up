@@ -14,6 +14,8 @@ export default Component.extend({
 
   departFrom: true,
 
+  florida: false,
+
   minDate: new Date(),
 
   minnesota: false,
@@ -46,6 +48,28 @@ export default Component.extend({
 
 
   actions: {
+
+
+    backToDetails() {
+      this.set('step0', true);
+      this.set('step1', true);
+      this.set('step2', false);
+      this.set('step3', false);
+      this.set('flightPicker', false);
+      this.set('bookIt', false);
+      this.send('changeBackground', 'small');
+    },
+
+
+    backToFlights() {
+      this.set('step0', false);
+      this.set('step1', true);
+      this.set('step2', true);
+      this.set('step3', false);
+      this.set('flightPicker', true);
+      this.set('bookIt', false);
+    },
+
 
     changeBackground(bigSmall) {
       this.sendAction('changeBackground', bigSmall);
@@ -105,36 +129,41 @@ export default Component.extend({
 		},
 
 
-		backToDetails() {
-			this.set('step0', true);
-			this.set('step1', true);
-			this.set('step2', false);
-			this.set('step3', false);
-			this.set('flightPicker', false);
-			this.set('bookIt', false);
-			this.send('changeBackground', 'small');
-    },
+    selectDeparture() {
 
+      let state = Ember.$('#origin').val();
 
-		backToFlights() {
-			this.set('step0', false);
-			this.set('step1', true);
-			this.set('step2', true);
-			this.set('step3', false);
-			this.set('flightPicker', true);
-			this.set('bookIt', false);
-    },
-
-
-    selectDeparture(state) {
+      console.log('state ', state);
       this.set('step1', true);
 
       if (state === 'az') {
         this.set('arizona', true);
+        this.set('florida', false);
         this.set('minnesota', false);
+        this.sendAction('changeBackgroundImage', 'mn');
+      } else if (state === 'fl') {
+        this.set('arizona', false);
+        this.set('florida', true);
+        this.set('minnesota', false);
+        this.sendAction('changeBackgroundImage', 'mn');
       } else {
         this.set('arizona', false);
+        this.set('florida', false);
         this.set('minnesota', true);
+      }
+
+    },
+
+    selectDestination() {
+
+      let state = Ember.$('#destination').val();
+
+      if (state === 'az') {
+        this.set('destination', 'ARIZONA');
+      } else if (state === 'fl') {
+        this.set('destination', 'FLORIDA');
+      } else {
+        this.set('destination', 'MINNESOTA');
       }
 
       this.sendAction('changeBackgroundImage', state);

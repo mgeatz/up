@@ -52,6 +52,10 @@ body {
     border-radius: 5px;
   }
 
+  small {
+    letter-spacing: 1px;
+  }
+
 }
 
 .btn {
@@ -97,7 +101,12 @@ body {
 }
 
 .mn_search {
-  background: url('/mn.jpeg');
+  background: url('/mn-1.jpg');
+  background-size: cover;
+}
+
+.fl_search {
+  background: url('/fl.jpg');
   background-size: cover;
 }
 
