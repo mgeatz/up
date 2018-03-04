@@ -103,4 +103,11 @@ body {
 
 .shuttle_route {
   padding: 15px;
+
+  img {
+    box-shadow: 0 0 13px 6px #ccc;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
 }
