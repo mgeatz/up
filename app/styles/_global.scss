@@ -119,4 +119,14 @@ body {
     border: 1px solid #ccc;
   }
 
+  span {
+    background: $color_light_transparent;
+    color: $color_space_dark;
+    font-weight: 500;
+    position: absolute;
+    padding: 10px;
+    letter-spacing: 1.5px;
+    margin-top: -40px;
+  }
+
 }

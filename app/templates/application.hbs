@@ -2,7 +2,7 @@
 <main id="top">
   {{outlet}}
 
-  <section class="container">
+  <section class="container" id="about">
     <div class="page-header">
       <h2 id="compare">UP Airway</h2>
       <p>We operate on unique principles and business strategy. What makes us special?</p>
@@ -41,7 +41,21 @@
     </div>
   </section>
 
-  <section class="container">
+  <section class="container" id="routes">
+    <div class="page-header">
+      <h2 id="compare">Routes</h2>
+      <p>We currently offer 2 routes:</p>
+      <ul>
+        <li>Flying Cloud Airport, Eden Prairie, Minnesota ←→ Scottsdale Airport, Scottsdale, Arizona</li>
+        <li>Flying Cloud Airport, Eden Prairie, Minnesota ←→ Miami Executive Airport, Miami, Florida</li>
+      </ul>
+      <div style="width: 50%; margin: 0 auto;">
+        <img src="/routes2.gif" width="100%"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="shuttle">
     <div class="page-header">
       <h2 id="compare">Ground Shuttle Service</h2>
       <p>After de-boarding the airplane, you can use our ground shuttle service or arrange for other transportation.</p>
@@ -51,14 +65,22 @@
         shuttle service.</p>
       <small>Ground Shuttle Service <i>from</i> the airport:</small>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="shuttle_route">
-            <img src="/az_shuttle.png" width="100%" height="525px"/>
+            <img src="/az_shuttle.png" width="100%" height="330px"/>
+            <span>Arizona Shuttle Line</span>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
+          <div class="shuttle_route">
+            <img src="/fl_rentals.png" width="100%"/>
+            <span>Florida On-Site Rentals</span>
+          </div>
+        </div>
+        <div class="col-sm-4">
           <div class="shuttle_route">
             <img src="/mn_shuttle.png" width="100%"/>
+            <span>Minnesota Shuttle Line</span>
           </div>
         </div>
         <p>We do not provide a continuous shuttle service <b>to</b> the airport. However, we can help accommodate those
