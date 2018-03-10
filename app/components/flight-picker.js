@@ -238,23 +238,26 @@ export default Component.extend({
       console.log('seat ', seat);
       let numberOfTravelers = parseInt(this.get('numberOfTravelers'));
 
-      if (this.get('outboundFlightSeats').length < numberOfTravelers) {
-				this.get('outboundFlightSeats').pushObject(seat);
-
+      let validateSeats = () => {
 				if (this.get('outboundFlightSeats').length === numberOfTravelers) {
 
-					if (this.get('dateOfReturn') === null) {
-						this.set('bookIt', true);
-					}
+          if (this.get('dateOfReturn') === null) {
+            this.set('bookIt', true);
+          }
 
-					if (proceedFlag === null) {
-						this.set('showSeats', false);
-						this.set('outboundFlight', true);
-					}
-
-				}
-
+          if (proceedFlag === null) {
+            this.set('showSeats', false);
+            this.set('outboundFlight', true);
+          }
+        }
       }
+
+      if (this.get('outboundFlightSeats').length < numberOfTravelers) {
+				this.get('outboundFlightSeats').pushObject(seat);
+				validateSeats();
+      }
+
+      validateSeats();
 
 			if (proceedFlag) {
 				if (this.get('returnFlightSeats').length < numberOfTravelers) {

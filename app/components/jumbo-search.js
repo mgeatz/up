@@ -28,9 +28,9 @@ export default Component.extend({
 
 		let timer = 11;
 
-    if (sessionStorage.getItem('alreadyDisplayedIntroMsg')) {
-      this.set('introMsg', false);
-    }
+		if (sessionStorage.getItem('alreadyDisplayedIntroMsg')) {
+			this.set('introMsg', false);
+		}
 
 		setTimeout(() => {
 			Ember.$('#timer').show();
@@ -43,7 +43,7 @@ export default Component.extend({
 					this.set('introMsg', false);
 				}
 			}, 1400);
-      sessionStorage.setItem('alreadyDisplayedIntroMsg', true);
+			sessionStorage.setItem('alreadyDisplayedIntroMsg', true);
 		}, 3000);
 
 	},
@@ -57,9 +57,9 @@ export default Component.extend({
 		},
 
 
-    changeBackgroundImage(state) {
+		changeBackgroundImage(state) {
 			console.log('search', state + '_search');
-      this.set('search', state + '_search');
+			this.set('search', state + '_search');
 		},
 
 
@@ -68,9 +68,9 @@ export default Component.extend({
 		},
 
 
-    successfullyBook() {
-      this.sendAction('successfullyBook');
-    }
+		successfullyBook() {
+			this.sendAction('successfullyBook');
+		}
 
 	}
 

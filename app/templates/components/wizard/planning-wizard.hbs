@@ -205,7 +205,7 @@
               Return Flight: {{returnFlight}}<br>
               <small>Takeoff: {{returnFlightTakeoff}}, Landing: {{returnFlightLanding}}</small>
               <br>
-              <small>Seats: {{#each returnFlightSeats as |returnseat|}}{{returnseat}}, {{/each}}</small>
+              <small>Seat(s): {{#each returnFlightSeats as |returnseat|}}{{returnseat}}, {{/each}}</small>
               <br><br>
             {{/if}}
           </div>
@@ -230,13 +230,13 @@
         <p>{{#if arizona}}ARIZONA to MINNESOTA{{/if}}</p>
         <p>{{#if florida}}FLORIDA to MINNESOTA{{/if}}</p>
         <p>
-          <small>Total Travelers:</small>{{numberOfTravelers}}</p>
+          <small>Total Travelers: </small>{{numberOfTravelers}}</p>
         {{#if dateOfDeparture}}
           <p>
-            <small>Departure Date:</small>{{dateOfDeparture}}</p>
+            <small>Departure Date: </small>{{dateOfDeparture}}</p>
           {{#if dateOfReturn}}
             <p>
-              <small>Return Date:</small>{{dateOfReturn}}</p>
+              <small>Return Date: </small>{{dateOfReturn}}</p>
           {{else}}
             <small> Return Date: NONE</small>
             <br><br>
@@ -271,7 +271,7 @@
               <small>Landing:</small>
               <p>{{returnFlightLanding}}</p>
             </div>
-            <small style="padding: 0 0 10px 15px">Seats: {{#each returnFlightSeats as |returnseat|}}
+            <small style="padding: 0 0 10px 15px">Seat(s): {{#each returnFlightSeats as |returnseat|}}
               <b>{{returnseat}}</b>, {{/each}}</small>
           {{/if}}
         {{/if}}

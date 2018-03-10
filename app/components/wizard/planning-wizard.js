@@ -72,7 +72,15 @@ export default Component.extend({
 
 
     changeBackground(bigSmall) {
-      this.sendAction('changeBackground', bigSmall);
+			let totalMoney = this.get('totalMoney');
+
+			if (totalMoney && bigSmall == 'small') {
+				console.log('changeBackground to big');
+				this.sendAction('changeBackground', 'big');
+			} else {
+				console.log('changeBackground', bigSmall);
+				this.sendAction('changeBackground', bigSmall);
+			}
     },
 
 
