@@ -74,7 +74,7 @@ export default Component.extend({
     changeBackground(bigSmall) {
 			let totalMoney = this.get('totalMoney');
 
-			if (totalMoney && bigSmall == 'small') {
+			if (totalMoney && bigSmall == 'small'  || window.innerWidth < 768) {
 				console.log('changeBackground to big');
 				this.sendAction('changeBackground', 'big');
 			} else {

@@ -29,7 +29,7 @@
     padding-top: 0px;
 
     // large screen
-    @media screen and (min-width: 900px) {
+    //@media screen and (min-width: 900px) {
 
       li + li:before {
         color: #ccc;
@@ -75,10 +75,10 @@
 
       }
 
-    }
+    //}
 
     // small screen
-
+    /*
     @media screen and (max-width: 900px) {
 
       padding: 0;
@@ -120,7 +120,7 @@
 
       }
 
-    }
+    }*/
 
   }
 

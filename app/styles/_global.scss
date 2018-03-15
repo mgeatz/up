@@ -56,6 +56,10 @@ body {
     letter-spacing: 1px;
   }
 
+  select, input {
+    -webkit-appearance: none;
+  }
+
 }
 
 .btn {
@@ -126,7 +130,8 @@ body {
     position: absolute;
     padding: 10px;
     letter-spacing: 1.5px;
-    margin-top: -40px;
+    bottom: 15px;
+    left: 30px;
   }
 
 }
