@@ -4,7 +4,7 @@
     <ol class="breadcrumb">
 
       {{#if step1}}
-        <li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}}" {{action "editDetails" on="click"}}>
+        <li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}} {{if florida 'b_fl' ''}}" {{action "editDetails" on="click"}}>
           <a class="btn btn-primary" style="padding-top: 32px;">DETAILS</a>
         </li>
       {{else}}
@@ -14,7 +14,7 @@
       {{/if}}
 
       {{#if step2}}
-        <li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}}">
+        <li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}} {{if florida 'b_fl' ''}}">
           <a class="btn btn-primary" style="padding-top: 32px;">FLIGHTS</a>
         </li>
       {{else}}
@@ -24,7 +24,7 @@
       {{/if}}
 
       {{#if step3}}
-        <li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}}">
+        <li class="current {{if arizona 'b_az' ''}} {{if minnesota 'b_mn' ''}} {{if florida 'b_fl' ''}}">
           <a class="btn btn-primary" style="padding-top: 32px;">BOOK IT</a>
         </li>
       {{else}}
@@ -42,7 +42,7 @@
           <div class="col-sm-6">
             <small>Origin</small>
             <br>
-            <select id="origin" {{action "selectDeparture" on="change"}}>
+            <select class="select_location" id="origin" {{action "selectDeparture" on="change"}}>
               {{#if (not step1)}}
                 <option selected>State, City</option>
               {{/if}}
@@ -65,12 +65,13 @@
                 <option value="mn" >MINNESOTA, Minneapolis</option>
               {{/if}}
             </select>
+            <i class="fas fa-arrows-alt-v"></i>
           </div>
           <div class="col-sm-6">
             {{#if minnesota}}
               <small>Destination</small>
               <br>
-              <select id="destination" {{action "selectDestination" on="change"}}>
+              <select class="select_location" id="destination" {{action "selectDestination" on="change"}}>
                 {{#if (not step2)}}
                   <option selected>State, City</option>
                 {{/if}}
@@ -87,25 +88,25 @@
                   <option value="fl" >FLORIDA, Miami</option>
                 {{/if}}
               </select>
+              <i class="fas fa-arrows-alt-v"></i>
             {{/if}}
             {{#if arizona}}
               <small>Destination</small>
               <br>
-              <select>
+              <select class="select_location">
                 <option value="mn">MINNESOTA, Minneapolis</option>
               </select>
+              <i class="fas fa-arrows-alt-v"></i>
             {{/if}}
             {{#if florida}}
               <small>Destination</small>
               <br>
-              <select>
+              <select class="select_location">
                 <option value="mn">MINNESOTA, Minneapolis</option>
               </select>
+              <i class="fas fa-arrows-alt-v"></i>
             {{/if}}
           </div>
-          <br>
-          <br>
-          <br>
         {{/if}}
         <div class="col-sm-12">
           <br>
@@ -123,7 +124,7 @@
             <option>9</option>
             <option>10</option>
           </select>
-          <i class="fas fa-arrows-alt-v hidden-sm hidden-md hidden-lg"></i>
+          <i class="fas fa-arrows-alt-v"></i>
           <br>
           <br>
         </div>
@@ -142,17 +143,16 @@
           <br>
           {{pikaday-input class="date_picker_return"
                           value=dateOfReturn
-                          minDate=minDate
+                          minDate=(if dateOfDeparture (return-date [dateOfDeparture]))
                           format="MM/DD/YYYY"
                           onClose=(action "pickDate" "return")
                           placeholder="MM/DD/YYYY"}}
         </div>
         <br>
-        <br>
         {{#if dateOfDeparture}}
           <div class="col-sm-12">
-            <br>
-            <br>
+            <br class="hidden-xs">
+            <br class="hidden-xs">
             <div class="btn-group" role="group" aria-label="...">
               <!--<button type="button" class="btn btn-default" {{action "editDetails"}}>BACK</button>-->
               <button type="button" class="btn btn-success" {{action "findFlights"}}>SEARCH</button>
@@ -186,26 +186,26 @@
         <hr>
         <div class="row">
           <div class="col-sm-6">
-            OUTBOUND Travel Route:<br>{{#if minnesota}}MINNESOTA to {{destination}}{{/if}}
+            <h6>OUTBOUND Travel Route:</h6><br>{{#if minnesota}}MINNESOTA to {{destination}}{{/if}}
             {{#if arizona}}ARIZONA to MINNESOTA{{/if}}
-            {{#if florida}}FLORIDA to MINNESOTA{{/if}}<br><br>
-            Total Travelers: {{numberOfTravelers}}<br><br>
-            Departure Date: {{dateOfDeparture}} {{#if timeOfDeparture}}@ {{timeOfDeparture}}{{/if}}<br><br>
-            Outbound Flight: {{outboundFlight}}<br>
-            <small>Takeoff: {{outboundFlightTakeoff}}, Landing: {{outboundFlightLanding}}</small>
+            {{#if florida}}FLORIDA to MINNESOTA{{/if}}<br>
+            <h6>Total Travelers:</h6> {{numberOfTravelers}}<br>
+            <h6>Departure Date:</h6> {{dateOfDeparture}} {{#if timeOfDeparture}}@ {{timeOfDeparture}}{{/if}}<br>
+            <h6>Outbound Flight:</h6> {{outboundFlight}}<br>
+            <small><h6>Takeoff:</h6> {{outboundFlightTakeoff}}, <h6>Landing:</h6> {{outboundFlightLanding}}</small>
             <br>
-            <small>Seats: {{#each outboundFlightSeats as |outboundseat|}}{{outboundseat}}, {{/each}}</small>
+            <small><h6>Seats:</h6> {{#each outboundFlightSeats as |outboundseat|}}{{outboundseat}}, {{/each}}</small>
           </div>
           <div class="col-sm-6">
             {{#if dateOfReturn}}
-              RETURN Travel Route:<br>{{#if minnesota}}ARIZONA to MINNESOTA{{/if}}
-              {{#if arizona}}MINNESOTA to ARIZONA{{/if}}<br><br>
-              Total Travelers: {{numberOfTravelers}}<br><br>
-              Return Date: {{dateOfReturn}}<br><br>
-              Return Flight: {{returnFlight}}<br>
-              <small>Takeoff: {{returnFlightTakeoff}}, Landing: {{returnFlightLanding}}</small>
+              <h6>RETURN Travel Route:</h6><br>{{#if minnesota}}ARIZONA to MINNESOTA{{/if}}
+              {{#if arizona}}MINNESOTA to ARIZONA{{/if}}<br>
+              <h6>Total Travelers:</h6> {{numberOfTravelers}}<br>
+              <h6>Return Date</h6> {{dateOfReturn}}<br>
+              <h6>Return Flight:</h6> {{returnFlight}}<br>
+              <small><h6>Takeoff:</h6> {{returnFlightTakeoff}}, <h6>Landing: </h6>{{returnFlightLanding}}</small>
               <br>
-              <small>Seat(s): {{#each returnFlightSeats as |returnseat|}}{{returnseat}}, {{/each}}</small>
+              <small><h6>Seat(s):</h6> {{#each returnFlightSeats as |returnseat|}}{{returnseat}}, {{/each}}</small>
               <br><br>
             {{/if}}
           </div>
@@ -223,36 +223,27 @@
       <h3>Trip Preview</h3>
       <hr>
       {{#if step1}}
-        <p>
-          <small>Travel Route:</small>
-        </p>
+        <h6>Travel Route:</h6>
         <p>{{#if minnesota}}MINNESOTA to {{destination}}{{/if}}</p>
         <p>{{#if arizona}}ARIZONA to MINNESOTA{{/if}}</p>
         <p>{{#if florida}}FLORIDA to MINNESOTA{{/if}}</p>
-        <p>
-          <small>Total Travelers: </small>{{numberOfTravelers}}</p>
+      <h6>Total Travelers: </h6><p>{{numberOfTravelers}}</p>
         {{#if dateOfDeparture}}
-          <p>
-            <small>Departure Date: </small>{{dateOfDeparture}}</p>
+        <h6>Departure Date: </h6><p>{{dateOfDeparture}}</p>
           {{#if dateOfReturn}}
-            <p>
-              <small>Return Date: </small>{{dateOfReturn}}</p>
+          <h6>Return Date: </h6><p>{{dateOfReturn}}</p>
           {{else}}
-            <small> Return Date: NONE</small>
+            <h6>Return Date:</h6> NONE
             <br><br>
           {{/if}}
         {{/if}}
         {{#if outboundFlight}}
-          <p>
-            <small>Outbound Flight: {{outboundFlight}}</small>
-          </p>
+          <h6>Outbound Flight: </h6><p>{{outboundFlight}}</p>
           <div class="col-sm-6">
-            <small>Takeoff:</small>
-            <p>{{outboundFlightTakeoff}}</p>
+            <h6>Takeoff: </h6><p>{{outboundFlightTakeoff}}</p>
           </div>
           <div class="col-sm-6">
-            <small>Landing:</small>
-            <p>{{outboundFlightLanding}}</p>
+            <h6>Landing:</h6><p>{{outboundFlightLanding}}</p>
           </div>
           <small style="padding: 0 0 10px 15px">Seats: {{#each outboundFlightSeats as |outboundseat|}}
             <b>{{outboundseat}}</b>, {{/each}}</small>
@@ -260,16 +251,12 @@
         {{/if}}
         {{#if dateOfReturn}}
           {{#if returnFlight}}
-            <p>
-              <small>Return Flight: {{returnFlight}}</small>
-            </p>
+            <h6>Return Flight: </h6><p>{{returnFlight}}</p>
             <div class="col-sm-6">
-              <small>Takeoff:</small>
-              <p>{{returnFlightTakeoff}}</p>
+              <h6>Takeoff:</h6><p>{{returnFlightTakeoff}}</p>
             </div>
             <div class="col-sm-6">
-              <small>Landing:</small>
-              <p>{{returnFlightLanding}}</p>
+              <h6>Landing:</h6><p>{{returnFlightLanding}}</p>
             </div>
             <small style="padding: 0 0 10px 15px">Seat(s): {{#each returnFlightSeats as |returnseat|}}
               <b>{{returnseat}}</b>, {{/each}}</small>

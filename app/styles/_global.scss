@@ -46,6 +46,15 @@ body {
 
   }
 
+  h4 {
+    color: $color_arizona;
+  }
+
+  h6 {
+    color: $color_blue;
+    display: inline;
+  }
+
   input.input_text {
     padding: 7px;
     border: none;
@@ -58,6 +67,15 @@ body {
 
   select, input {
     -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    border-radius: 5px;
+  }
+
+  .big_pad {
+    padding: 20px 0;
+    margin: 0;
   }
 
 }

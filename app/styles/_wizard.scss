@@ -9,11 +9,6 @@
     //width: 75%
   }
 
-  // small screen
-  @media screen and (max-width: 900px) {
-    width: 85%
-  }
-
   // tall screen
   @media screen and (max-height: 820px) and (max-width: 415px) {
     height: 375px;
@@ -68,6 +63,17 @@
 
         a {
           background-color: $color_minnesota;
+          color: $color_light;
+          border: 1px solid $color_light;
+          line-height: .95;
+        }
+
+      }
+
+      .current.b_fl {
+
+        a {
+          background-color: $color_florida;
           color: $color_light;
           border: 1px solid $color_light;
           line-height: .95;
@@ -143,6 +149,15 @@
       position: absolute;
       margin: 8px -21px;
       font-size: 16px;
+      pointer-events: none;
+    }
+
+    .numberOfTravelers {
+      width: 50px;
+    }
+
+    .select_location {
+      min-width: 245px;
     }
 
     select {

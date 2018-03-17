@@ -13,7 +13,7 @@
 							<h4>{{flightOut.takeoff}} - {{flightOut.landing}}</h4>
 							<h6 class="architect">UP Airway</h6>
 						</div>
-						<div class="col-xs-12 col-sm-6">
+						<div class="col-xs-12 col-sm-6 col-md-5">
 							<p>Flight {{flightOut.id}}</p>
 							<b>3h 20m (Nonstop)</b><br>
 							{{#if arizona}}FROM: Phoenix (Scottsdale Airport, Scottsdale) - TO: Minneapolis (Flying Cloud Airport, Eden Prairie){{/if}}
@@ -21,10 +21,10 @@
 							<br>
 							<h4>11 Remaining Seats</h4>
 						</div>
-						<div class="col-xs-12 col-sm-2">
-							<h5>$725 per person</h5>
-							<small>one way</small><br>
-							<small>Free cancel w/in 48hrs</small>
+						<div class="col-xs-12 col-sm-2 col-md-3">
+              <h6>$725 per person <sup>**</sup></h6>
+              <br><br class="hidden-xs"><small>** one way</small>
+              <br><br class="hidden-xs"><sup>Free cancel w/in 48hrs</sup>
 						</div>
 						<div class="col-xs-12 col-sm-2">
 							<button class="btn btn-success" {{action "selectOutboundFlight" flightOut}}>Select</button>
@@ -36,7 +36,7 @@
 				</div>
 			</div>
       <div class="seat_preview collapse" id={{flightOut.id}}>
-        <div class="well">helo
+        <div class="well">
 					<img src="/b600-1.png" usemap="#image-map1" width="100%">
 					<map name="image-map1">
 						<area target="" alt="1" title="1" href="" coords="292,50,362,115" shape="0" >
@@ -72,17 +72,17 @@
 								<h4>{{flightReturn.takeoff}} - {{flightReturn.landing}}</h4>
 								<h6 class="architect">UP Airway</h6>
 							</div>
-							<div class="col-xs-12 col-sm-6">
+							<div class="col-xs-12 col-sm-6 col-md-5">
 								<p>Flight {{flightReturn.id}}</p>
 								<b>3h 20m (Nonstop)</b><br>
 								{{#if minnesota}}FROM: Phoenix (Scottsdale Airport, Scottsdale) - TO: Minneapolis (Flying Cloud Airport, Eden Prairie){{/if}}
 								{{#if arizona}}FROM: Minneapolis (Flying Cloud Airport, Eden Prairie)- TO: Phoenix (Scottsdale Airport, Scottsdale){{/if}}
 								<h4>11 Remaining Seats</h4>
 							</div>
-							<div class="col-xs-12 col-sm-2">
-								<h5>$725 per person</h5>
-								<small>one way</small><br>
-								<small>Free cancel w/in 48hrs</small>
+							<div class="col-xs-12 col-sm-2 col-md-3">
+                <h6>$725 per person <sup>**</sup></h6>
+                <br><br class="hidden-xs"><small>** one way</small>
+                <br><br class="hidden-xs"><sup>Free cancel w/in 48hrs</sup>
 							</div>
 							<div class="col-xs-12 col-sm-2">
 								<button class="btn btn-success" {{action "selectReturnFlight" flightReturn}}>Select</button>
@@ -138,4 +138,3 @@
 		</div>
 	</div>
 {{/if}}
-
