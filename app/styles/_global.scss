@@ -28,6 +28,7 @@ body {
   }
 
   h5 {
+    color: $color_blue;
 
     .current {
       color: $color_light;
@@ -47,7 +48,7 @@ body {
   }
 
   h4 {
-    color: $color_arizona;
+    color: $color_minnesota;
   }
 
   h6 {
@@ -150,6 +151,49 @@ body {
     letter-spacing: 1.5px;
     bottom: 15px;
     left: 30px;
+  }
+
+}
+
+sub {
+  bottom: -0.45em;
+  left: -3px;
+}
+
+.carousel-indicators {
+  bottom: 40px;
+}
+
+.carousel-control.right,
+.carousel-control.left {
+  background-image: none;
+}
+
+.carousel-inner {
+
+  img {
+    margin: auto;
+  }
+
+}
+
+.gallery_control {
+  position: absolute;
+  margin-top: 10px;
+  width: 100%;
+
+  a {
+    margin: auto;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    i {
+      color: $color_light;
+      font-size: 24px;
+    }
+
   }
 
 }
