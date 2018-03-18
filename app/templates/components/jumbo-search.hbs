@@ -7,13 +7,14 @@
       {{#if introMsg}}
         <button class="btn btn-default architect" {{action "skipIntro"}}>Skip Intro</button>
         <br><br>
-        <h3>{{typed-string class="element" strings=typedStrings typeSpeed=10 backSpeed=0 cursorChar="▌"}}</h3>
-        <h1 id="timer"></h1>
+        <h3>{{typed-string class="element" strings=typedStrings typeSpeed=50 backSpeed=0 cursorChar="▌"}}</h3>
+        <br><br>
+        <h5 style="position:fixed;bottom:50px;">Redirecting in ... <span id="timer">15</span></h5>
       {{else}}
         <div class="row">
           <div class="col-xs-12 col-sm-11 col-md-10">
             <!--<p class="yan_kaff">"We provide private flights to the public at commercial prices." -
-                          <b>UP</b> <span class="font_small">CEO</span>, Michael Geatz</p>-->
+                          <b>UP</b> <span class="font_small">CEO</span>, Mic  hael Geatz</p>-->
           </div>
         </div>
         <h3>Plan A Flight</h3>

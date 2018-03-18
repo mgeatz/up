@@ -4,14 +4,9 @@ import {computed} from '@ember/object';
 export default Component.extend({
 
 	typedStrings: [
-		"Hello",
-		"Do you have 10 seconds?",
-		"We are new.",
-		"Current phase = market feasibility.",
-		"We need your help...",
-		"Please create a simulated travel trip.",
-		"Your clicks are vital!",
-		"Thanks!"
+		"Hello there . . . We're a new air travel option, and we need your help! " +
+    "Market feasibility relies on simulated trip data . . . " +
+    "The analytics gathered are vital to our startup success!",
 	],
 
 	search: 'mn_search',
@@ -26,9 +21,10 @@ export default Component.extend({
 	init() {
 		this._super();
 
-		let timer = 11;
+		let timer = 16;
 
-		if (sessionStorage.getItem('alreadyDisplayedIntroMsg')) {
+		if (sessionStorage.getItem('alreadyDisplayedIntroMsg') &&
+        location.search !== '?dev=1') {
 			this.set('introMsg', false);
 		}
 
@@ -42,9 +38,9 @@ export default Component.extend({
 					$('.element').fadeOut('slow');
 					this.set('introMsg', false);
 				}
-			}, 1400);
+			}, 1200);
 			sessionStorage.setItem('alreadyDisplayedIntroMsg', true);
-		}, 3000);
+		});
 
 	},
 
