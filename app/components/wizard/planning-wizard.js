@@ -14,6 +14,8 @@ export default Component.extend({
 
   departFrom: true,
 
+  destination: 'MINNESOTA',
+
   florida: false,
 
   minDate: new Date(),

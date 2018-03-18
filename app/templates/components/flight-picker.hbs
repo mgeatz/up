@@ -1,140 +1,132 @@
 <section class="flight_picker">
 
-	{{#if (not outboundFlight)}}
-		<h5>
-			<span class="current">Choose Outbound Flight</span>
-		</h5>
-		{{#each outboundFlightTimes as | flightOut |}}
-			<div class="panel panel-default outbound_flights">
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-xs-12 col-sm-2">
-							<small>{{dateOfDeparture}}</small>
-							<h4>{{flightOut.takeoff}} - {{flightOut.landing}}</h4>
-							<h6 class="architect">UP Airway</h6>
-						</div>
-						<div class="col-xs-12 col-sm-6 col-md-5">
-							<p>Flight {{flightOut.id}}</p>
-							<b>3h 20m (Nonstop)</b><br>
-							{{#if arizona}}FROM: Phoenix (Scottsdale Airport, Scottsdale) - TO: Minneapolis (Flying Cloud Airport, Eden Prairie){{/if}}
-							{{#if minnesota}}FROM: Minneapolis (Flying Cloud Airport, Eden Prairie) - TO: Phoenix (Scottsdale Airport, Scottsdale){{/if}}
-							<br>
-							<h4>11 Remaining Seats</h4>
-						</div>
-						<div class="col-xs-12 col-sm-2 col-md-3">
-              <h6>$725 per person <sup>**</sup></h6>
-              <br><br class="hidden-xs"><small>** one way</small>
-              <br><br class="hidden-xs"><sup>Free cancel w/in 48hrs</sup>
-						</div>
-						<div class="col-xs-12 col-sm-2">
-							<button class="btn btn-success" {{action "selectOutboundFlight" flightOut}}>Select</button>
-							<a data-toggle="collapse" data-target="#{{flightOut.id}}" {{action "showSeats" false}}>
-								Show seats
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-      <div class="seat_preview collapse" id={{flightOut.id}}>
-        <div class="well">
-					<img src="/b600-1.png" usemap="#image-map1" width="100%">
-					<map name="image-map1">
-						<area target="" alt="1" title="1" href="" coords="292,50,362,115" shape="0" >
-						<area target="" alt="2" title="2" href="" coords="412,56,478,116" shape="0" >
-						<area target="" alt="3" title="3" href="" coords="410,192,479,253" shape="0" >
-						<area target="" alt="4" title="4" href="" coords="294,191,358,252" shape="0" >
-						<area target="" alt="5" title="5" href="" coords="494,158,564,203" shape="0" >
-						<area target="" alt="6" title="6" href="" coords="497,212,564,259" shape="0" >
-						<area target="" alt="7" title="7" href="" coords="673,160,741,202" shape="0" >
-						<area target="" alt="8" title="8" href="" coords="673,214,742,259" shape="0" >
-						<area target="" alt="9" title="9" href="" coords="491,62,562,113" shape="0" >
-						<area target="" alt="10" title="10" href="" coords="575,65,649,114" shape="0" >
-						<area target="" alt="11" title="11" href="" coords="663,66,736,111" shape="0" >
-					</map>
-        </div>
-      </div>
-		{{/each}}
-	{{/if}}
-
-	{{#if outboundFlight}}
-		{{#if dateOfReturn}}
-			<h5>
-				<span class="not_current" {{action "backToOutboudFlights"}}>Update Outbound Flight</span>
-				←→
-				<span class="current">Choose Return FLight</span>
-			</h5>
-			{{#each returnFlightTimes as | flightReturn |}}
-				<div class="panel panel-default return_flights">
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-xs-12 col-sm-2">
-								<small>{{dateOfReturn}}</small>
-								<h4>{{flightReturn.takeoff}} - {{flightReturn.landing}}</h4>
-								<h6 class="architect">UP Airway</h6>
-							</div>
-							<div class="col-xs-12 col-sm-6 col-md-5">
-								<p>Flight {{flightReturn.id}}</p>
-								<b>3h 20m (Nonstop)</b><br>
-								{{#if minnesota}}FROM: Phoenix (Scottsdale Airport, Scottsdale) - TO: Minneapolis (Flying Cloud Airport, Eden Prairie){{/if}}
-								{{#if arizona}}FROM: Minneapolis (Flying Cloud Airport, Eden Prairie)- TO: Phoenix (Scottsdale Airport, Scottsdale){{/if}}
-								<h4>11 Remaining Seats</h4>
-							</div>
-							<div class="col-xs-12 col-sm-2 col-md-3">
-                <h6>$725 per person <sup>**</sup></h6>
-                <br><br class="hidden-xs"><small>** one way</small>
-                <br><br class="hidden-xs"><sup>Free cancel w/in 48hrs</sup>
-							</div>
-							<div class="col-xs-12 col-sm-2">
-								<button class="btn btn-success" {{action "selectReturnFlight" flightReturn}}>Select</button>
-								<a data-toggle="collapse" data-target="#{{flightReturn.id}}" {{action "showSeats" false}}>
-									Show seats
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-        <div class="seat_preview collapse" id={{flightReturn.id}}>
-          <div class="well">
-						<img src="/b600-1.png" usemap="#image-map2" width="100%">
-						<map name="image-map2">
-							<area target="" alt="1" title="1" href="" coords="292,50,362,115" shape="0" >
-							<area target="" alt="2" title="2" href="" coords="412,56,478,116" shape="0" >
-							<area target="" alt="3" title="3" href="" coords="410,192,479,253" shape="0" >
-							<area target="" alt="4" title="4" href="" coords="294,191,358,252" shape="0" >
-							<area target="" alt="5" title="5" href="" coords="494,158,564,203" shape="0" >
-							<area target="" alt="6" title="6" href="" coords="497,212,564,259" shape="0" >
-							<area target="" alt="7" title="7" href="" coords="673,160,741,202" shape="0" >
-							<area target="" alt="8" title="8" href="" coords="673,214,742,259" shape="0" >
-							<area target="" alt="9" title="9" href="" coords="491,62,562,113" shape="0" >
-							<area target="" alt="10" title="10" href="" coords="575,65,649,114" shape="0" >
-							<area target="" alt="11" title="11" href="" coords="663,66,736,111" shape="0" >
-						</map>
+  {{#if (not outboundFlight)}}
+    <h5>
+      <span class="current">Choose Outbound Flight</span>
+    </h5>
+    {{#each outboundFlightTimes as | flightOut |}}
+      <div class="panel panel-default outbound_flights">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <h4>{{flightOut.takeoff}} - {{flightOut.landing}}</h4>
+              <small>{{dateOfDeparture}}</small>
+              <br>
+              <h6 class="architect">UP Airway</h6>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-5 col-md-pull-1">
+              <p>3h 20m (Nonstop)</p>
+              <small>
+                {{#if arizona}}AZ, Scottsdale{{/if}}
+                {{#if minnesota}}MN, Eden Prairie{{/if}}
+                {{#if florida}}FL, Miami{{/if}}
+                {{#if (eq destination "ARIZONA")}} → AZ, Scottsdale{{/if}}
+                {{#if (eq destination 'FLORIDA')}} → FL, Miami{{/if}}
+                {{#if (eq destination 'MINNESOTA')}} → MN, Eden Prairie{{/if}}
+                <br>
+                <sup>
+                  {{#if arizona}}(Scottsdale Airport){{/if}}
+                  {{#if minnesota}}(Flying Cloud Airport){{/if}}
+                  {{#if florida}}(Miami Exec. Airport){{/if}}
+                  {{#if (eq destination "ARIZONA")}} → (Scottsdale Airport){{/if}}
+                  {{#if (eq destination 'FLORIDA')}} → (Miami Exec. Airport){{/if}}
+                  {{#if (eq destination 'MINNESOTA')}} → (Flying Cloud Airport){{/if}}
+                </sup>
+              </small>
+              <br>
+              <b>Flight {{flightOut.id}}</b>
+              <br>
+              <h6>11 Remaining Seats</h6>
+            </div>
+            <div class="col-xs-6 col-sm-2 col-sm-pull-1">
+              <h4>$725</h4>
+              <h6><sup>per person</sup></h6>
+              <br class="hidden-xs"><sub>one way</sub>
+            </div>
+            <div class="col-xs-6 col-sm-1 col-sm-pull-1">
+              <button class="btn btn-success" {{action "selectOutboundFlight" flightOut}}>Select</button>
+            </div>
           </div>
         </div>
-			{{/each}}
-		{{/if}}
-	{{/if}}
+      </div>
+    {{/each}}
+  {{/if}}
+
+  {{#if outboundFlight}}
+    {{#if dateOfReturn}}
+      <h5>
+        <span class="not_current" {{action "backToOutboudFlights"}}>Update Outbound Flight</span>
+        ←→
+        <span class="current">Choose Return FLight</span>
+      </h5>
+      {{#each returnFlightTimes as | flightReturn |}}
+        <div class="panel panel-default return_flights">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-12 col-sm-4">
+                <h4>{{flightReturn.takeoff}} - {{flightReturn.landing}}</h4>
+                <small>{{dateOfReturn}}</small>
+                <br>
+                <h6 class="architect">UP Airway</h6>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-5 col-md-pull-1">
+                <p>3h 20m (Nonstop)</p>
+                <small>
+                  {{#if (eq destination "ARIZONA")}}AZ, Scottsdale{{/if}}
+                  {{#if (eq destination 'FLORIDA')}}FL, Miami{{/if}}
+                  {{#if (eq destination 'MINNESOTA')}}MN, Eden Prairie{{/if}}
+                  {{#if arizona}} → AZ, Scottsdale{{/if}}
+                  {{#if minnesota}} → MN, Eden Prairie{{/if}}
+                  {{#if florida}} → FL, Miami{{/if}}
+                  <br>
+                  <sup>
+                    {{#if (eq destination "ARIZONA")}}(Scottsdale Airport){{/if}}
+                    {{#if (eq destination 'FLORIDA')}}(Miami Exec. Airport){{/if}}
+                    {{#if (eq destination 'MINNESOTA')}}(Flying Cloud Airport){{/if}}
+                    {{#if arizona}} → (Scottsdale Airport){{/if}}
+                    {{#if minnesota}} → (Flying Cloud Airport){{/if}}
+                    {{#if florida}} → (Miami Exec. Airport){{/if}}
+                  </sup>
+                </small>
+                <br>
+                <b>Flight {{flightReturn.id}}</b><br>
+                <h6>11 Remaining Seats</h6>
+              </div>
+              <div class="col-xs-6 col-sm-2 col-sm-pull-1">
+                <h4>$725</h4>
+                <h6><sup>per person</sup></h6>
+                <sub>per person</sub>
+              </div>
+              <div class="col-xs-6 col-sm-1 col-sm-pull-1">
+                <button class="btn btn-success" {{action "selectReturnFlight" flightReturn}}>Select</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  {{/if}}
 
 </section>
 
 {{#if showSeats}}
-	<div class="collapse in">
-		<div class="well">
-			<!-- Image Map Generated by http://www.image-map.net/ -->
-			<img src="/b600-1.png" usemap="#image-map3" width="100%">
-			<map name="image-map3">
-				<area alt="1" title="1" href="" coords="292,50,362,115" shape="0" {{action "selectSeat" 1 returnFlightId}}>
-				<area alt="2" title="2" href="" coords="412,56,478,116" shape="0" {{action "selectSeat" 2 returnFlightId}}>
-				<area alt="3" title="3" href="" coords="410,192,479,253" shape="0" {{action "selectSeat" 3 returnFlightId}}>
-				<area alt="4" title="4" href="" coords="294,191,358,252" shape="0" {{action "selectSeat" 4 returnFlightId}}>
-				<area alt="5" title="5" href="" coords="494,158,564,203" shape="0" {{action "selectSeat" 5 returnFlightId}}>
-				<area alt="6" title="6" href="" coords="497,212,564,259" shape="0" {{action "selectSeat" 6 returnFlightId}}>
-				<area alt="7" title="7" href="" coords="673,160,741,202" shape="0" {{action "selectSeat" 7 returnFlightId}}>
-				<area alt="8" title="8" href="" coords="673,214,742,259" shape="0" {{action "selectSeat" 8 returnFlightId}}>
-				<area alt="9" title="9" href="" coords="491,62,562,113" shape="0" {{action "selectSeat" 9 returnFlightId}}>
-				<area alt="10" title="10" href="" coords="575,65,649,114" shape="0" {{action "selectSeat" 10 returnFlightId}}>
-				<area alt="11" title="11" href="" coords="663,66,736,111" shape="0" {{action "selectSeat" 11 returnFlightId}}>
-			</map>
-		</div>
-	</div>
+  <div class="collapse in">
+    <div class="well">
+      <!-- Image Map Generated by http://www.image-map.net/ -->
+      <img src="/b600-1.png" usemap="#image-map3" width="100%">
+      <map name="image-map3">
+        <area alt="1" title="1" href="" coords="292,50,362,115" shape="0" {{action "selectSeat" 1 returnFlightId}}>
+        <area alt="2" title="2" href="" coords="412,56,478,116" shape="0" {{action "selectSeat" 2 returnFlightId}}>
+        <area alt="3" title="3" href="" coords="410,192,479,253" shape="0" {{action "selectSeat" 3 returnFlightId}}>
+        <area alt="4" title="4" href="" coords="294,191,358,252" shape="0" {{action "selectSeat" 4 returnFlightId}}>
+        <area alt="5" title="5" href="" coords="494,158,564,203" shape="0" {{action "selectSeat" 5 returnFlightId}}>
+        <area alt="6" title="6" href="" coords="497,212,564,259" shape="0" {{action "selectSeat" 6 returnFlightId}}>
+        <area alt="7" title="7" href="" coords="673,160,741,202" shape="0" {{action "selectSeat" 7 returnFlightId}}>
+        <area alt="8" title="8" href="" coords="673,214,742,259" shape="0" {{action "selectSeat" 8 returnFlightId}}>
+        <area alt="9" title="9" href="" coords="491,62,562,113" shape="0" {{action "selectSeat" 9 returnFlightId}}>
+        <area alt="10" title="10" href="" coords="575,65,649,114" shape="0" {{action "selectSeat" 10 returnFlightId}}>
+        <area alt="11" title="11" href="" coords="663,66,736,111" shape="0" {{action "selectSeat" 11 returnFlightId}}>
+      </map>
+    </div>
+  </div>
 {{/if}}
