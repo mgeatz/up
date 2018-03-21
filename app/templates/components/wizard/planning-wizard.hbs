@@ -157,7 +157,7 @@
             <br class="hidden-xs">
             <div class="btn-group" role="group" aria-label="...">
               <!--<button type="button" class="btn btn-default" {{action "editDetails"}}>BACK</button>-->
-              <button type="button" class="btn btn-success" {{action "findFlights"}}>SEARCH</button>
+              <button type="button" class="btn btn-success" {{action "findFlights"}}>Search</button>
             </div>
           </div>
         {{/if}}
@@ -218,6 +218,7 @@
           <br>
           <button class="btn btn-success architect" {{action "successfullyBook"}}>Book It</button>
           <h3 class="architect">Total $: {{totalMoney}}</h3>
+          <sup>Total includes 7.25% sales tax</sup>
         {{/if}}
       </div>
     {{/if}}
@@ -277,7 +278,7 @@
         {{/if}}
         {{#if totalMoney}}
           <h3>Total $: {{totalMoney}}</h3>
-          <br class="hidden-xs"><sub>Free cancel w/in 48hrs</sub><br>
+          <sup>Total includes 7.25% sales tax</sup>
         {{/if}}
       {{/if}}
     </div>

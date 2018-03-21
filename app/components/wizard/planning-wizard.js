@@ -4,7 +4,7 @@ export default Component.extend({
 
   arizona: false,
 
-	bookIt: false,
+  bookIt: false,
 
   dateOfDeparture: null,
 
@@ -33,19 +33,19 @@ export default Component.extend({
   step3: false,
 
 
-	_calculateTotal() {
+  _calculateTotal() {
     let numberOfTravelers = parseInt(this.get('numberOfTravelers')),
-      returnFlight = this.get('returnFlight'),
-      cost = null;
+        returnFlight      = this.get('returnFlight'),
+        tempCost          = null;
 
-    console.log('returnFlight...');
     if (Ember.isPresent(returnFlight)) {
-			cost = numberOfTravelers * 725 * 2;
+      tempCost = numberOfTravelers * 1399 * 2;
     } else {
-      cost = numberOfTravelers * 725;
+      tempCost = numberOfTravelers * 1399;
     }
 
-    this.set('totalMoney', cost);
+    let cost = tempCost + (tempCost * .0725);
+    this.set('totalMoney',  Number(cost.toFixed(2)).toLocaleString());
   },
 
 
@@ -74,69 +74,69 @@ export default Component.extend({
 
 
     changeBackground(bigSmall) {
-			let totalMoney = this.get('totalMoney');
+      let totalMoney = this.get('totalMoney');
 
-			if (totalMoney && bigSmall == 'small'  || window.innerWidth < 768) {
-				console.log('changeBackground to big');
-				this.sendAction('changeBackground', 'big');
-			} else {
-				console.log('changeBackground', bigSmall);
-				this.sendAction('changeBackground', bigSmall);
-			}
+      if (totalMoney && bigSmall == 'small' || window.innerWidth < 768) {
+        console.log('changeBackground to big');
+        this.sendAction('changeBackground', 'big');
+      } else {
+        console.log('changeBackground', bigSmall);
+        this.sendAction('changeBackground', bigSmall);
+      }
     },
 
 
-		desiredCapacity(event) {
-			this.set('numberOfTravelers', Ember.$('.numberOfTravelers').val());
-			// console.log('desiredCapacity()...', event, this.get('numberOfTravelers'));
-		},
+    desiredCapacity(event) {
+      this.set('numberOfTravelers', Ember.$('.numberOfTravelers').val());
+      // console.log('desiredCapacity()...', event, this.get('numberOfTravelers'));
+    },
 
 
-		editDetails() {
-			this.set('step0', true);
-			this.set('step1', true);
-			this.set('step2', false);
-			this.set('step3', false);
-			this.set('flightPicker', false);
-			this.set('bookIt', false);
-			this.send('changeBackground', 'small');
-		},
+    editDetails() {
+      this.set('step0', true);
+      this.set('step1', true);
+      this.set('step2', false);
+      this.set('step3', false);
+      this.set('flightPicker', false);
+      this.set('bookIt', false);
+      this.send('changeBackground', 'small');
+    },
 
 
-		findFlights() {
-			this.set('step0', false);
-			this.set('step1', true);
-			this.set('step2', true);
-			this.set('step3', false);
-			this.set('flightPicker', true);
-			this.set('bookIt', false);
-			this.send('changeBackground', 'big');
-		},
+    findFlights() {
+      this.set('step0', false);
+      this.set('step1', true);
+      this.set('step2', true);
+      this.set('step3', false);
+      this.set('flightPicker', true);
+      this.set('bookIt', false);
+      this.send('changeBackground', 'big');
+    },
 
 
-		flightDetails(details) {
-    	this.set('details', details);
+    flightDetails(details) {
+      this.set('details', details);
       this.set('outboundFlight', details.outboundFlightId);
-			this.set('outboundFlightTakeoff', details.outboundFlightTakeoff);
-			this.set('outboundFlightLanding', details.outboundFlightLanding);
-			this.set('outboundFlightSeats', details.outboundFlightSeats);
+      this.set('outboundFlightTakeoff', details.outboundFlightTakeoff);
+      this.set('outboundFlightLanding', details.outboundFlightLanding);
+      this.set('outboundFlightSeats', details.outboundFlightSeats);
 
-			this.set('returnFlight', details.returnFlightId);
-			this.set('returnFlightTakeoff', details.returnFlightTakeoff);
-			this.set('returnFlightLanding', details.returnFlightLanding);
-			this.set('returnFlightSeats', details.returnFlightSeats);
+      this.set('returnFlight', details.returnFlightId);
+      this.set('returnFlightTakeoff', details.returnFlightTakeoff);
+      this.set('returnFlightLanding', details.returnFlightLanding);
+      this.set('returnFlightSeats', details.returnFlightSeats);
 
-			if (details.bookIt) {
-				this.set('step0', false);
-				this.set('step1', true);
-				this.set('step2', true);
-				this.set('step3', true);
-				this.set('flightPicker', false);
+      if (details.bookIt) {
+        this.set('step0', false);
+        this.set('step1', true);
+        this.set('step2', true);
+        this.set('step3', true);
+        this.set('flightPicker', false);
         this.set('bookIt', true);
 
         this._calculateTotal();
       }
-		},
+    },
 
 
     selectDeparture() {
@@ -180,7 +180,7 @@ export default Component.extend({
     },
 
 
-		thankYou() {
+    thankYou() {
       // submit email
       let email_address = this.get('email_address');
       console.log('email_address ', email_address);
@@ -201,16 +201,16 @@ export default Component.extend({
 
 
     successfullyBook() {
-    	let arizona = this.get('arizona'),
-				startingLocation = arizona !== false ? 'AZ' : 'MN',
-				details = this.get('details');
+      let arizona          = this.get('arizona'),
+          startingLocation = arizona !== false ? 'AZ' : 'MN',
+          details          = this.get('details');
 
-    	details.numberOfTravelers = this.get('numberOfTravelers');
-    	details.startingLocation = startingLocation;
+      details.numberOfTravelers = this.get('numberOfTravelers');
+      details.startingLocation  = startingLocation;
 
-			// send JSON object
-				// then
-      	location.href = 'success';
+      // send JSON object
+      // then
+      location.href = 'success';
 
     }
 
