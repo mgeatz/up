@@ -60,6 +60,12 @@
                 <option value="fl">FLORIDA, Miami</option>
               {{/if}}
 
+              {{#if vegas}}
+                <option value="lv" selected>NEVADA, Las Vegas</option>
+              {{else}}
+                <option value="lv">NEVADA, Las Vegas</option>
+              {{/if}}
+
               {{#if minnesota}}
                 <option value="mn" selected>MINNESOTA, Minneapolis</option>
               {{else}}
@@ -88,6 +94,12 @@
                 {{else}}
                   <option value="fl">FLORIDA, Miami</option>
                 {{/if}}
+
+                {{#if (eq destination 'NEVADA')}}
+                  <option value="lv" selected>NEVADA, Las Vegas</option>
+                {{else}}
+                  <option value="lv">NEVADA, Las Vegas</option>
+                {{/if}}
               </select>
               <i class="fas fa-arrows-alt-v"></i>
             {{/if}}
@@ -100,6 +112,14 @@
               <i class="fas fa-arrows-alt-v"></i>
             {{/if}}
             {{#if florida}}
+              <small>Destination</small>
+              <br>
+              <select class="select_location">
+                <option value="mn">MINNESOTA, Minneapolis</option>
+              </select>
+              <i class="fas fa-arrows-alt-v"></i>
+            {{/if}}
+            {{#if vegas}}
               <small>Destination</small>
               <br>
               <select class="select_location">

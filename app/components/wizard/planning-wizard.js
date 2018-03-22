@@ -149,16 +149,25 @@ export default Component.extend({
       if (state === 'az') {
         this.set('arizona', true);
         this.set('florida', false);
+        this.set('vegas', false);
         this.set('minnesota', false);
         this.sendAction('changeBackgroundImage', 'mn');
       } else if (state === 'fl') {
         this.set('arizona', false);
         this.set('florida', true);
+        this.set('vegas', false);
+        this.set('minnesota', false);
+        this.sendAction('changeBackgroundImage', 'mn');
+      } else if (state === 'lv') {
+        this.set('arizona', false);
+        this.set('florida', false);
+        this.set('vegas', true);
         this.set('minnesota', false);
         this.sendAction('changeBackgroundImage', 'mn');
       } else {
         this.set('arizona', false);
         this.set('florida', false);
+        this.set('vegas', false);
         this.set('minnesota', true);
       }
 
@@ -172,6 +181,8 @@ export default Component.extend({
         this.set('destination', 'ARIZONA');
       } else if (state === 'fl') {
         this.set('destination', 'FLORIDA');
+      } else if (state === 'lv') {
+        this.set('destination', 'NEVADA');
       } else {
         this.set('destination', 'MINNESOTA');
       }
