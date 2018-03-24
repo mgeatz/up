@@ -45,7 +45,7 @@ export default Component.extend({
     }
 
     let cost = tempCost + (tempCost * .0725);
-    this.set('totalMoney',  Number(cost.toFixed(2)).toLocaleString());
+    this.set('totalMoney', Number(cost.toFixed(2)).toLocaleString());
   },
 
 
@@ -212,16 +212,45 @@ export default Component.extend({
 
 
     successfullyBook() {
-      let arizona          = this.get('arizona'),
+      let store            = this.get('store'),
+          arizona          = this.get('arizona'),
           startingLocation = arizona !== false ? 'AZ' : 'MN',
-          details          = this.get('details');
+          details          = this.get('details'),
+          IP               = sessionStorage.getItem('IP'),
+          flightReqObj     = [];
 
       details.numberOfTravelers = this.get('numberOfTravelers');
       details.startingLocation  = startingLocation;
 
-      // send JSON object
-      // then
-      location.href = 'success';
+      // build the data into multidimensional array format
+      flightReqObj.push('IP:' + IP + '');
+      flightReqObj.push('ARIZONA:' + this.get('arizona') + '');
+      flightReqObj.push('DATE_OF_DEPARTURE:' + this.get('dateOfDeparture') + '');
+      flightReqObj.push('DATE_OF_RETURN:' + this.get('dateOfReturn') + '');
+      flightReqObj.push('DEPART_FROM:' + this.get('departFrom') + '');
+      flightReqObj.push('DESTINATION:' + this.get('destination') + '');
+      flightReqObj.push('FLORIDA:' + this.get('florida') + '');
+      flightReqObj.push('MINNESOTA:' + this.get('minnesota') + '');
+      flightReqObj.push('NUMBER_OF_TRAVELERS:' + this.get('numberOfTravelers') + '');
+
+      let dataObj = '{"blockData": "' + flightReqObj + '"}';
+      console.log(dataObj);
+
+      $.ajax({
+        method: "POST",
+        contentType: "application/json",
+        datatype: "json",
+        url: "http://drunkdumpster.com:9999/marketFeasibility",
+        data: dataObj
+      })
+        .done((response) => {
+          console.log('success', response);
+          // then
+          location.href = 'success';
+        })
+        .fail(function (response) {
+          console.log('error', response);
+        })
 
     }
 
