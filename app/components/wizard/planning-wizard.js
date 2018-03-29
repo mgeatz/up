@@ -212,7 +212,8 @@ export default Component.extend({
 
 
     successfullyBook() {
-      let store            = this.get('store'),
+      let self             = this,
+          store            = this.get('store'),
           arizona          = this.get('arizona'),
           startingLocation = arizona !== false ? 'AZ' : 'MN',
           details          = this.get('details'),
