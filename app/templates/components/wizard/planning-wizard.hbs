@@ -196,7 +196,10 @@
                       arizona=arizona
                       minnesota=minnesota
                       florida=florida
-                      flightDetails='flightDetails'}}
+                      vegas=vegas
+                      flightDetails='flightDetails'
+                      outboundFlightSeats=outboundFlightSeats
+                      returnFlightSeats=returnFlightSeats}}
     {{/if}}
 
     {{#if bookIt}}
@@ -210,9 +213,11 @@
         <hr>
         <div class="row">
           <div class="col-sm-6">
-            <h6>OUTBOUND Travel Route:</h6><br>{{#if minnesota}}MINNESOTA to {{destination}}{{/if}}
+            <h6>OUTBOUND Travel Route:</h6><br>
+            {{#if minnesota}}MINNESOTA to {{destination}}{{/if}}
             {{#if arizona}}ARIZONA to MINNESOTA{{/if}}
-            {{#if florida}}FLORIDA to MINNESOTA{{/if}}<br>
+            {{#if florida}}FLORIDA to MINNESOTA{{/if}}
+            {{#if vegas}}NEVADA to MINNESOTA{{/if}}<br>
             <h6>Total Travelers:</h6> {{numberOfTravelers}}<br>
             <h6>Departure Date:</h6> {{dateOfDeparture}} {{#if timeOfDeparture}}@ {{timeOfDeparture}}{{/if}}<br>
             <h6>Outbound Flight:</h6> {{outboundFlight}}<br>
@@ -222,8 +227,11 @@
           </div>
           <div class="col-sm-6">
             {{#if dateOfReturn}}
-              <h6>RETURN Travel Route:</h6><br>{{#if minnesota}}ARIZONA to MINNESOTA{{/if}}
-              {{#if arizona}}MINNESOTA to ARIZONA{{/if}}<br>
+              <h6>RETURN Travel Route:</h6><br>
+              {{#if minnesota}}{{destination}} to MINNESOTA{{/if}}
+              {{#if arizona}}MINNESOTA to ARIZONA{{/if}}
+              {{#if florida}}MINNESOTA to FLORIDA{{/if}}
+              {{#if vegas}}MINNESOTA to NEVADA{{/if}}<br>
               <h6>Total Travelers:</h6> {{numberOfTravelers}}<br>
               <h6>Return Date</h6> {{dateOfReturn}}<br>
               <h6>Return Flight:</h6> {{returnFlight}}<br>
@@ -252,6 +260,7 @@
         <p>{{#if minnesota}}MINNESOTA to {{destination}}{{/if}}</p>
         <p>{{#if arizona}}ARIZONA to MINNESOTA{{/if}}</p>
         <p>{{#if florida}}FLORIDA to MINNESOTA{{/if}}</p>
+        <p>{{#if vegas}}NEVADA to MINNESOTA{{/if}}</p>
         <h6>Total Travelers: </h6>
         <p>{{numberOfTravelers}}</p>
         {{#if dateOfDeparture}}

@@ -61,6 +61,7 @@ body {
     padding: 7px;
     border: none;
     border-radius: 5px;
+    color: $color_space_dark;
   }
 
   small {
@@ -208,6 +209,22 @@ button.btn {
       font-size: 24px;
     }
 
+  }
+
+}
+
+.email_error {
+
+  input {
+    border: 2px inset red !important;
+    color: red !important;
+  }
+
+  &:before {
+    clear: both;
+    display: block;
+    content: 'ERROR';
+    font-size: 10px;
   }
 
 }

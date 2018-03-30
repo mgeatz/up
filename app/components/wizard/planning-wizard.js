@@ -32,6 +32,10 @@ export default Component.extend({
 
   step3: false,
 
+  outboundFlightSeats: [],
+
+  returnFlightSeats: [],
+
 
   _calculateTotal() {
     let numberOfTravelers = parseInt(this.get('numberOfTravelers')),
@@ -70,6 +74,8 @@ export default Component.extend({
       this.set('step3', false);
       this.set('flightPicker', true);
       this.set('bookIt', false);
+      this.set('outboundFlightSeats', []);
+      this.set('returnFlightSeats', []);
     },
 
 
@@ -232,6 +238,7 @@ export default Component.extend({
       flightReqObj.push('DESTINATION:' + this.get('destination') + '');
       flightReqObj.push('FLORIDA:' + this.get('florida') + '');
       flightReqObj.push('MINNESOTA:' + this.get('minnesota') + '');
+      flightReqObj.push('NEVADA:' + this.get('vegas') + '');
       flightReqObj.push('NUMBER_OF_TRAVELERS:' + this.get('numberOfTravelers') + '');
 
       let dataObj = '{"blockData": "' + flightReqObj + '"}';

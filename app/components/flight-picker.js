@@ -250,7 +250,7 @@ export default Component.extend({
             this.set('outboundFlight', true);
           }
         }
-      }
+      };
 
       if (this.get('outboundFlightSeats').length < numberOfTravelers) {
 				this.get('outboundFlightSeats').pushObject(seat);
@@ -268,7 +268,10 @@ export default Component.extend({
 						this.set('showSeats', false);
 					}
 
-				}
+				} else if (this.get('returnFlightSeats').length === numberOfTravelers) {
+          this.set('bookIt', true);
+          this.set('showSeats', false);
+        }
       }
 
 			this.send('flightDetails');
