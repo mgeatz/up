@@ -12,25 +12,16 @@ export default Route.extend({
     thankYou(email_address) {
       let self = this,
           IP = sessionStorage.getItem('IP'),
-          signUpObj = [],
           re = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-      signUpObj.push(IP);
-      signUpObj.push(email_address);
 
       this.controller.set('regexFail', false);
 
-      let dataObj = '{"blockData": "' + signUpObj + '"}';
-
-      console.log('thank you', email_address);
-
       if (re.test(email_address)) {
+        ga('send', 'event', 'button', 'click', 'Sign Up');
+
         $.ajax({
-          method: "POST",
-          contentType: "application/json",
-          datatype: "json",
-          url: "http://drunkdumpster.com:9999/emailSignUp",
-          data: dataObj
+          method: "GET",
+          url: "http://drunkdumpster.com:9999/emailSignUp?email="+email_address+"&client="+IP,
         })
           .done((response) => {
             console.log('success', response);
