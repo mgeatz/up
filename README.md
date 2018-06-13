@@ -26,3 +26,19 @@ type `A`
 
 check website
 
+
+### Server
+host machine:
+
+```
+cd /Desktop
+sudo bash upair.sh
+```
+EC2:
+```
+sudo bash emberDeploy.sh
+cd /www/html/
+sudo service httpd restart
+```
+
+~
